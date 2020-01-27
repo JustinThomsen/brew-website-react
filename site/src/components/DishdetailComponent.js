@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React from 'react';
 import {
     Card,
     CardImg,
@@ -6,125 +6,12 @@ import {
     CardBody,
     CardTitle,
     BreadcrumbItem,
-    Breadcrumb,
-    NavItem,
-    Button,
-    Nav,
-    ModalHeader,
-    ModalBody,
-    Label,
-    Modal,
-    Row,
-    Col
+    Breadcrumb
 } from 'reactstrap'
 import { Link } from "react-router-dom";
-import { Control, Errors, LocalForm } from "react-redux-form";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
-import { FadeTransform, Fade, Stagger } from "react-animation-components";
-
-const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !(val) || (val.length <= len);
-const minLength = (len) => (val) => (val) && (val.length >= len);
-
-class CommentForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isModalOpen: false
-        };
-        this.toggleModal = this.toggleModal.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-
-    }
-
-    toggleModal() {
-        this.setState({
-            isModalOpen: !this.state.isModalOpen
-        });
-    }
-
-    handleSubmit(values) {
-        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
-        this.toggleModal();
-        alert('Current State is: ' + JSON.stringify(values));
-        console.log(values.rating + values.author);
-        console.log(this.props);
-    }
-
-    render() {
-        return(
-            <React.Fragment>
-                <Nav className="ml-auto" navbar>
-                    <NavItem>
-                        <Button outline onClick={this.toggleModal}>
-                            <span className="fa fa-pencil fa-lg"/> Submit Comment
-                        </Button>
-                    </NavItem>
-                </Nav>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader isOpen={this.state.isModalOpen} toggle={this.toggleModal}>Submit Comment</ModalHeader>
-                    <ModalBody>
-                        <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-                            <Row className="form-group">
-                                <Label htmlFor="rating" md={12}>Rating<br/></Label>
-                                <Col md={12}>
-                                    <Control.select model=".rating" id="rating" name="rating"
-                                                    placeholder="Rating"
-                                                    className="form-control"
-                                                    validators={{required,}}
-                                    >
-                                        <option>Select Your Rating</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </Control.select>
-                                    <Errors className="text-danger"
-                                            model=".rating"
-                                            show="touched"
-                                            messages={{required: 'Required'}}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="author" md={12}>Your Name</Label>
-                                <Col md={12}>
-                                    <Control.text model=".author" id="author" name="author"
-                                                  placeholder="Your Name"
-                                                  className="form-control"
-                                                  validators={{
-                                                      minLength: minLength(3), maxLength: maxLength(15),
-                                                  }}
-                                    />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".author"
-                                        show="touched"
-                                        messages={{
-                                            minLength: 'Must be greater than 2 characters',
-                                            maxLength: 'Must be 15 characters or less'
-                                        }}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="comment" md={12}>Comment</Label>
-                                <Col md={12}>
-                                    <Control.textarea model=".comment" id="comment" name="comment" rows="6"
-                                                      className="form-control"
-                                    />
-                                </Col>
-                            </Row>
-                            <Button type="submit" color="primary">Submit</Button>
-                        </LocalForm>
-                    </ModalBody>
-                </Modal>
-            </React.Fragment>
-        )
-    }
-}
+import { FadeTransform } from "react-animation-components";
 
 function RenderDish({dish}){
     return(
@@ -141,36 +28,6 @@ function RenderDish({dish}){
             </Card>
         </FadeTransform>
     )
-}
-
-function RenderComments({comments, postComment, dishId}){
-
-        return (
-            <React.Fragment>
-                <h4>Comments</h4>
-                <Stagger in>
-
-                    {comments.map((comment) => {
-                        return (
-                            <Fade in>
-
-                                <ul key={comment.id} className="list-unstyled">
-
-                                    <li>{comment.comment}</li>
-                                    <li>-- {comment.author} , {new Intl.DateTimeFormat('en-US', {
-                                        year: 'numeric',
-                                        month: 'short',
-                                        day: '2-digit'
-                                    }).format(new Date(Date.parse(comment.date)))}</li>
-                                </ul>
-                            </Fade>
-                        );
-                    })}
-                </Stagger>
-                <CommentForm dishId={dishId} postComment={postComment}/>
-            </React.Fragment>
-        )
-
 }
 
 const DishDetail = (props) => {
@@ -207,11 +64,6 @@ const DishDetail = (props) => {
                 <div className="row">
                     <div className="col-12 col-md-5 m-1 d-inline-block">
                         <RenderDish dish={props.dish}/>
-                    </div>
-                    <div className="col-12 col-md-5 m-1 d-inline-block">
-                        <RenderComments comments = {props.comments}
-                                        postComment={props.postComment}
-                                        dishId={props.dish.id} />
                     </div>
                 </div>
             </div>
