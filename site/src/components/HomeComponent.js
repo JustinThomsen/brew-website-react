@@ -36,9 +36,9 @@ function Home(props) {
         <div className="container">
             <div className="row align-items-start">
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.dish}
-                                isLoading={props.dishesLoading}
-                                errMess={props.dishesErrMess}
+                    <RenderCard item={props.beverage}
+                                isLoading={props.beveragesLoading}
+                                errMess={props.beveragesErrMess}
                     />
                 </div>
                 <div className="col-12 col-md m-1">

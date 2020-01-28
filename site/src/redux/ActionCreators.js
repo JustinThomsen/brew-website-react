@@ -2,10 +2,10 @@ import * as ActionTypes from './ActionTypes';
 
 import { baseUrl } from "../shared/baseUrl";
 
-export const fetchDishes = () => (dispatch) => {
-    dispatch(dishesLoading(true));
+export const fetchBeverages = () => (dispatch) => {
+    dispatch(beveragesLoading(true));
 
-    return fetch(baseUrl + 'dishes')
+    return fetch(baseUrl + 'beverages')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -20,22 +20,22 @@ export const fetchDishes = () => (dispatch) => {
             throw errmess;
         })
         .then(response => response.json())
-        .then(dishes => dispatch(addDishes(dishes)))
-        .catch(error => dispatch(dishesFailed(error.message)));
+        .then(beverages => dispatch(addBeverages(beverages)))
+        .catch(error => dispatch(beveragesFailed(error.message)));
 };
 
-export const dishesLoading = () => ({
-    type: ActionTypes.DISHES_LOADING
+export const beveragesLoading = () => ({
+    type: ActionTypes.BEVERAGES_LOADING
 });
 
-export const dishesFailed = (errMess) => ({
-    type: ActionTypes.DISHES_FAILED,
+export const beveragesFailed = (errMess) => ({
+    type: ActionTypes.BEVERAGES_FAILED,
     payload: errMess
 });
 
-export const addDishes = (dishes) => ({
-    type: ActionTypes.ADD_DISHES,
-    payload: dishes
+export const addBeverages = (beverages) => ({
+    type: ActionTypes.ADD_BEVERAGES,
+    payload: beverages
 });
 
 export const leadersLoading = () => ({

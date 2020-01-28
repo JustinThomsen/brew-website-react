@@ -30,7 +30,7 @@ function RenderDish({dish}){
     )
 }
 
-const DishDetail = (props) => {
+const BeverageDetail = (props) => {
     if(props.isLoading){
         return(
          <div className="container">
@@ -75,4 +75,4 @@ const DishDetail = (props) => {
     }
 }
 
-export default DishDetail;
+export default BeverageDetail;

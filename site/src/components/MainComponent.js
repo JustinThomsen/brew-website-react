@@ -3,23 +3,23 @@ import Home from './HomeComponent'
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Menu from './MenuComponent';
-import DishDetail from './DishdetailComponent';
+import BeverageDetail from './BeverageDetailComponent';
 import About from './AboutComponent';
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchLeaders, fetchDishes, fetchPromos } from "../redux/ActionCreators";
+import { fetchLeaders, fetchBeverages, fetchPromos } from "../redux/ActionCreators";
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 
 const mapStateToProps = state => {
     return {
-        dishes: state.dishes,
+        beverages: state.beverages,
         promotions: state.promotions,
         leaders: state.leaders
     }
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchDishes: () => {dispatch(fetchDishes())},
+    fetchDishes: () => {dispatch(fetchBeverages())},
     fetchLeaders: () => {dispatch(fetchLeaders())},
     fetchPromos: () => {dispatch(fetchPromos())},
 });
@@ -40,9 +40,9 @@ class Main extends Component {
     render() {
         const HomePage = () => {
             return(
-                <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
-                      dishesLoading={this.props.dishes.isLoading}
-                      dishesErrMess={this.props.dishes.errMess}
+                <Home beverage={this.props.beverages.beverages.filter((dish) => dish.featured)[0]}
+                      beveragesLoading={this.props.beverages.isLoading}
+                      beveragesErrMess={this.props.beverages.errMess}
                       promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
                       promosLoading={this.props.promotions.isLoading}
                       promosErrMess={this.props.promotions.errMess}
@@ -53,11 +53,11 @@ class Main extends Component {
             )
         };
 
-        const DishWithId = ({match}) => {
+        const BeverageWithId = ({match}) => {
             return(
-                <DishDetail dish={this.props.dishes.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
-                    isLoading={this.props.dishes.isLoading}
-                    errMess={this.props.dishes.errMess}
+                <BeverageDetail dish={this.props.beverages.beverages.filter((beverage) => beverage.id === parseInt(match.params.dishId,10))[0]}
+                                isLoading={this.props.beverages.isLoading}
+                                errMess={this.props.beverages.errMess}
                 />
             );
         };
@@ -68,8 +68,8 @@ class Main extends Component {
                     <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
                         <Switch>
                             <Route path="/home" component={ HomePage }/>
-                            <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
-                            <Route path="/menu/:dishId" component={ DishWithId } />
+                            <Route exact path="/menu" component={() => <Menu beverages={this.props.beverages} />} />
+                            <Route path="/menu/:beverageId" component={ BeverageWithId } />
                             <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
                             <Redirect to="/home"/>
                         </Switch>
