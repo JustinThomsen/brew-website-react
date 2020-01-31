@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardImg, CardTitle, CardBody, CardText, CardSubtitle} from "reactstrap";
+import {Card, CardImg, CardTitle, CardBody, CardText, CardSubtitle, Jumbotron} from "reactstrap";
 import {Loading} from "./LoadingComponent";
 import {baseUrl} from "../shared/baseUrl";
 import {FadeTransform} from "react-animation-components";
@@ -33,27 +33,29 @@ function RenderCard({item, isLoading, errMess}) {
 
 function Home(props) {
     return (
-        <div className="container">
-            <div className="row align-items-start">
-                <div className="col-12 col-md m-1">
-                    <RenderCard item={props.beverage}
-                                isLoading={props.beveragesLoading}
-                                errMess={props.beveragesErrMess}
-                    />
-                </div>
-                <div className="col-12 col-md m-1">
-                    <RenderCard item={props.promotion}
-                                isLoading={props.promosLoading}
-                                errMess={props.promosErrMess}
-                    />
-                </div>
-                <div className="col-12 col-md m-1">
-                    <RenderCard item={props.leader}
-                                isLoading={props.leadersLoading}
-                                errMess={props.leadersErrMess}/>
+        <Jumbotron>
+            <div className="container">
+                <div className="row align-items-start">
+                    <div className="col-12 col-md m-1">
+                        <RenderCard item={props.beverage}
+                                    isLoading={props.beveragesLoading}
+                                    errMess={props.beveragesErrMess}
+                        />
+                    </div>
+                    <div className="col-12 col-md m-1">
+                        <RenderCard item={props.promotion}
+                                    isLoading={props.promosLoading}
+                                    errMess={props.promosErrMess}
+                        />
+                    </div>
+                    <div className="col-12 col-md m-1">
+                        <RenderCard item={props.leader}
+                                    isLoading={props.leadersLoading}
+                                    errMess={props.leadersErrMess}/>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Jumbotron>
     );
 }
 

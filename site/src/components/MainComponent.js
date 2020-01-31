@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Home from './HomeComponent'
 import Header from './HeaderComponent';
-import Footer from './FooterComponent';
 import Menu from './MenuComponent';
 import BeverageDetail from './BeverageDetailComponent';
 import About from './AboutComponent';
@@ -19,7 +18,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchDishes: () => {dispatch(fetchBeverages())},
+    fetchBeverages: () => {dispatch(fetchBeverages())},
     fetchLeaders: () => {dispatch(fetchLeaders())},
     fetchPromos: () => {dispatch(fetchPromos())},
 });
@@ -31,7 +30,7 @@ class Main extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchDishes();
+        this.props.fetchBeverages();
         this.props.fetchPromos();
         this.props.fetchLeaders();
     }
@@ -40,15 +39,7 @@ class Main extends Component {
     render() {
         const HomePage = () => {
             return(
-                <Home beverage={this.props.beverages.beverages.filter((dish) => dish.featured)[0]}
-                      beveragesLoading={this.props.beverages.isLoading}
-                      beveragesErrMess={this.props.beverages.errMess}
-                      promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
-                      promosLoading={this.props.promotions.isLoading}
-                      promosErrMess={this.props.promotions.errMess}
-                      leader={this.props.leaders.leaders.filter((lead) => lead.featured)[0]}
-                      leadersLoading={this.props.leaders.isLoading}
-                      leadersErrMess={this.props.leaders.errMess}
+                <Menu beverages={this.props.beverages}
                 />
             )
         };
@@ -70,12 +61,11 @@ class Main extends Component {
                             <Route path="/home" component={ HomePage }/>
                             <Route exact path="/menu" component={() => <Menu beverages={this.props.beverages} />} />
                             <Route path="/menu/:beverageId" component={ BeverageWithId } />
-                            <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
+                            <Route exact path="/bettendorf" component={() => <About leaders={this.props.leaders} />} />
                             <Redirect to="/home"/>
                         </Switch>
                     </CSSTransition>
                 </TransitionGroup>
-                <Footer/>
             </div>
         );
     }

@@ -10,7 +10,6 @@ import {
     ModalBody,
     Collapse,
     NavItem,
-    Jumbotron,
     Form,
     FormGroup,
     Input,
@@ -64,20 +63,21 @@ class Header extends Component {
                             <Nav navbar>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">
-                                        <span className="fa fa-home fa-lg"/> Home
+                                        <span className="fa fa-home fa-lg"/> Ankeny
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
-                                        <span className="fa fa-info fa-lg"/> About Us
+                                    <NavLink className="nav-link" to="/bettendorf">
+                                        <span className="fa fa-info fa-lg"/> Bettendorf
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/menu">
-                                        <span className="fa fa-list fa-lg"/> Menu
+                                        <span className="fa fa-list fa-lg"/> Update
                                     </NavLink>
                                 </NavItem>
                             </Nav>
+                            <h1>Magic Vine Brew Co</h1>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     <Button outline onClick={this.toggleModal}>
@@ -88,16 +88,6 @@ class Header extends Component {
                         </Collapse>
                     </div>
                 </Navbar>
-                <Jumbotron>
-                    <div className="container">
-                        <div className="row row-header">
-                            <div className="col-12 col-sm-6">
-                                <h1>Ristorante Con Fusion</h1>
-                                <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
-                            </div>
-                        </div>
-                    </div>
-                </Jumbotron>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader isOpen={this.state.isModalOpen} toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>
