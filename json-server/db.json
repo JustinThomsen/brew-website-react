@@ -2,8 +2,8 @@
   "beverages": [
     {
       "id": 0,
-      "name": "Uthappizza",
-      "image": "images/uthappizza.png",
+      "name": "What In The Abyss",
+      "image": "images/abyss.jpg",
       "category": "mains",
       "label": "Hot",
       "price": "4.99",

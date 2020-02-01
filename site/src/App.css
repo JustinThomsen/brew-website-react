@@ -19,9 +19,7 @@
 .jumbotron {
     padding: 70px 30px 70px 30px;
     margin: 0px auto;
-    background: url("large_Beer.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+
 }
 
 .navbar-dark {
@@ -48,6 +46,12 @@
     opacity: 0.01;
     transform: translateX(100%);
     transition: 300ms ease-out;
+}
+
+.menu {
+    background: url("large_Beer.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 address {

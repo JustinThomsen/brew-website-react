@@ -8,6 +8,7 @@ import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchLeaders, fetchBeverages, fetchPromos } from "../redux/ActionCreators";
 import { TransitionGroup, CSSTransition } from "react-transition-group"
+import {Jumbotron} from "reactstrap";
 
 const mapStateToProps = state => {
     return {
@@ -46,7 +47,7 @@ class Main extends Component {
 
         const BeverageWithId = ({match}) => {
             return(
-                <BeverageDetail dish={this.props.beverages.beverages.filter((beverage) => beverage.id === parseInt(match.params.dishId,10))[0]}
+                <BeverageDetail beverage={this.props.beverages.beverages.filter((beverage) => beverage.id === parseInt(match.params.beverageId,10))[0]}
                                 isLoading={this.props.beverages.isLoading}
                                 errMess={this.props.beverages.errMess}
                 />
