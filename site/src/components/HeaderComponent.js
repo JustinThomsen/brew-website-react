@@ -55,62 +55,21 @@ class Header extends Component {
             <React.Fragment>
                 <Navbar dark expand="md">
                     <div className="container">
-                        <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand className="mr-auto" href="/">
-                            <img src= {baseUrl+"images/logo.png"} height="30" width="41" alt="Ristorante Con Fusion"/>
-                        </NavbarBrand>
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav navbar>
+                        <h1>Magic Bean Brewing</h1>
+                            <Nav>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/home">
+                                    <NavLink activeClassName="activeLink" className="nav-link inactiveLink" to="/ankeny">
                                         <span className="fa fa-home fa-lg"/> Ankeny
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/bettendorf">
-                                        <span className="fa fa-info fa-lg"/> Bettendorf
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/menu">
-                                        <span className="fa fa-list fa-lg"/> Update
+                                    <NavLink activeClassName="activeLink" className="nav-link inactiveLink" to="/bettendorf">
+                                        <span className="fa fa-beer fa-lg"/> Bettendorf
                                     </NavLink>
                                 </NavItem>
                             </Nav>
-                            <h1>Magic Vine Brew Co</h1>
-                            <Nav className="ml-auto" navbar>
-                                <NavItem>
-                                    <Button outline onClick={this.toggleModal}>
-                                        <span className="fa fa-sign-in fa-lg"></span> Login
-                                    </Button>
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
                     </div>
                 </Navbar>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader isOpen={this.state.isModalOpen} toggle={this.toggleModal}>Login</ModalHeader>
-                    <ModalBody>
-                        <Form onSubmit={this.handleLogin}>
-                            <FormGroup>
-                                <Label htmlFor="username">Username</Label>
-                                <Input type="text" id="username" name="username"
-                                innerRef={(input) => this.username = input} />
-                                <Label htmlFor="password">Password</Label>
-                                <Input type="password" id="password" name="password"
-                                innerRef={(input) => this.password = input }/>
-                                <FormGroup check>
-                                    <Label check>
-                                        <Input type="checkbox" name="remember"
-                                innerRef={(input) => this.remember = input}/>
-                                        Remember me
-                                    </Label>
-                                </FormGroup>
-                            </FormGroup>
-                            <Button type="submit" value={"submit"} color="primary">Login</Button>
-                        </Form>
-                    </ModalBody>
-                </Modal>
             </React.Fragment>
         );
     }

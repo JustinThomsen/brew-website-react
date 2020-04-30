@@ -1,27 +1,41 @@
-import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap'
+import React, {Fragment} from 'react';
+import {Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem, CardText, CardFooter} from 'reactstrap'
 import { Link } from "react-router-dom";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 
 function RenderMenuItem({beverage}) {
     return(
-        <Link to={`/menu/${beverage.id}`}>
-            <Card>
+        <Link to={`/ankeny/${beverage.id}`}>
+            <Card className="fullHeightCard">
                 <CardImg width="100%" src={baseUrl + beverage.image} alt={beverage.name}/>
-                <CardImgOverlay className='ml-5'>
-                    <CardTitle>{beverage.name}</CardTitle>
+                <CardImgOverlay>
+                    <CardTitle className='col-12 '>{beverage.name}</CardTitle>
+                    <CardTitle className='col-12 align-text-bottom'>{beverage.style}</CardTitle>
                 </CardImgOverlay>
             </Card>
         </Link>
     )
-
 }
 
 const Menu = (props) => {
-    const menu = props.beverages.beverages.map((beverage) => {
+
+    const bettendorfMenu = props.location.bettendorfMenu.map((menuItem) => {
+        console.log("hi");
+        console.log(props.beverages.beverages.filter(beverage => beverage.id === menuItem.beveragesid));
         return (
-            <div key={beverage.id} className="col-12 col-md-5 m-1">
+            //beverage={this.props.beverages.beverages.filter((beverage) => beverage.id === parseInt(match.params.beverageId,10))[0]}
+            <div key={menuItem.id} className="col-6 col-md-2">
+                <RenderMenuItem beverage = {props.beverages.beverages.filter(beverage => beverage.id === menuItem.beveragesid)[0]} />
+            </div>
+        );
+    });
+
+    const menu = props.beverages.beverages.map((beverage) => {
+        console.log("high");
+        console.log(beverage);
+        return (
+            <div key={beverage.id} className="col-6 col-md-2">
                 <RenderMenuItem beverage={beverage} />
             </div>
         );
@@ -46,21 +60,26 @@ const Menu = (props) => {
     }
     else
         return (
-            <div className="container">
+            <Fragment>
                 <div className="row">
-                <Breadcrumb>
-                    <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>Menu</BreadcrumbItem>
-                </Breadcrumb>
                     <div className="col-12">
-                        <h3>Menu</h3>
+                        <h3>CO2</h3>
                         <hr />
                     </div>
                 </div>
                 <div className="row">
                     {menu}
                 </div>
-            </div>
+                <div className="row">
+                    <div className="col-12">
+                        <h3>Nitro</h3>
+                        <hr />
+                    </div>
+                </div>
+                <div className="row">
+                    {bettendorfMenu}
+                </div>
+            </Fragment>
         );
 };
 

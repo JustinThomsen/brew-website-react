@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
-import Home from './HomeComponent'
 import Header from './HeaderComponent';
 import Menu from './MenuComponent';
 import BeverageDetail from './BeverageDetailComponent';
-import About from './AboutComponent';
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchLeaders, fetchBeverages, fetchPromos } from "../redux/ActionCreators";
-import { TransitionGroup, CSSTransition } from "react-transition-group"
-import {Jumbotron} from "reactstrap";
+import {fetchBeverages, fetchBettendorfBeverages} from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {
         beverages: state.beverages,
-        promotions: state.promotions,
-        leaders: state.leaders
+        ankenyMenu: state.ankenyMenu,
+        bettendorfMenu: state.bettendorfMenu
     }
 };
 
 const mapDispatchToProps = dispatch => ({
     fetchBeverages: () => {dispatch(fetchBeverages())},
-    fetchLeaders: () => {dispatch(fetchLeaders())},
-    fetchPromos: () => {dispatch(fetchPromos())},
+    fetchAnkenyBeverages: () => {dispatch(fetchBettendorfBeverages())},
+    fetchBettendorfBeverages: () => {dispatch(fetchBettendorfBeverages())}
 });
+
+function buildMenu(menu) {
+    console.log(menu);
+    return menu;
+}
 
 class Main extends Component {
 
@@ -32,19 +33,11 @@ class Main extends Component {
 
     componentDidMount() {
         this.props.fetchBeverages();
-        this.props.fetchPromos();
-        this.props.fetchLeaders();
+        this.props.fetchBettendorfBeverages();
     }
 
 
     render() {
-        const HomePage = () => {
-            return(
-                <Menu beverages={this.props.beverages}
-                />
-            )
-        };
-
         const BeverageWithId = ({match}) => {
             return(
                 <BeverageDetail beverage={this.props.beverages.beverages.filter((beverage) => beverage.id === parseInt(match.params.beverageId,10))[0]}
@@ -56,17 +49,13 @@ class Main extends Component {
         return (
             <div>
                 <Header/>
-                <TransitionGroup>
-                    <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
-                        <Switch>
-                            <Route path="/home" component={ HomePage }/>
-                            <Route exact path="/menu" component={() => <Menu beverages={this.props.beverages} />} />
-                            <Route path="/menu/:beverageId" component={ BeverageWithId } />
-                            <Route exact path="/bettendorf" component={() => <About leaders={this.props.leaders} />} />
-                            <Redirect to="/home"/>
-                        </Switch>
-                    </CSSTransition>
-                </TransitionGroup>
+                <Switch>
+                    <Route exact path="/ankeny" component={() => <Menu location={"ankeny"} beverages={this.props.beverages}/>} />
+                    <Route path="/ankeny/:beverageId" component={ BeverageWithId } />
+                    <Route exact path="/bettendorf" component={() => <Menu location={this.props.bettendorfMenu} beverages={this.props.beverages} />} />
+                    <Route path="/bettendorf/:beverageId" component={ BeverageWithId } />
+                    <Redirect to="/ankeny"/>
+                </Switch>
             </div>
         );
     }

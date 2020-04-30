@@ -18,7 +18,7 @@
     "url": "https://github.com/JustinThomsen/FrontEndReact/issues"
   },
   "homepage": "https://github.com/JustinThomsen/FrontEndReact#readme",
-  "devDependencies": {
+  "dependencies": {
     "lite-server": "^2.4.0"
   }
 }
