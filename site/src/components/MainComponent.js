@@ -4,7 +4,7 @@ import Menu from './MenuComponent';
 import BeverageDetail from './BeverageDetailComponent';
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import {fetchBeverages, fetchBettendorfBeverages} from "../redux/ActionCreators";
+import {fetchBeverages, fetchBettendorfBeverages, fetchAnkenyBeverages} from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {
@@ -16,14 +16,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     fetchBeverages: () => {dispatch(fetchBeverages())},
-    fetchAnkenyBeverages: () => {dispatch(fetchBettendorfBeverages())},
+    fetchAnkenyBeverages: () => {dispatch(fetchAnkenyBeverages())},
     fetchBettendorfBeverages: () => {dispatch(fetchBettendorfBeverages())}
 });
-
-function buildMenu(menu) {
-    console.log(menu);
-    return menu;
-}
 
 class Main extends Component {
 
@@ -34,6 +29,7 @@ class Main extends Component {
     componentDidMount() {
         this.props.fetchBeverages();
         this.props.fetchBettendorfBeverages();
+        this.props.fetchAnkenyBeverages();
     }
 
 
@@ -50,10 +46,9 @@ class Main extends Component {
             <div>
                 <Header/>
                 <Switch>
-                    <Route exact path="/ankeny" component={() => <Menu location={"ankeny"} beverages={this.props.beverages}/>} />
-                    <Route path="/ankeny/:beverageId" component={ BeverageWithId } />
-                    <Route exact path="/bettendorf" component={() => <Menu location={this.props.bettendorfMenu} beverages={this.props.beverages} />} />
-                    <Route path="/bettendorf/:beverageId" component={ BeverageWithId } />
+                    <Route exact path="/ankeny" component={() => <Menu page="ankeny" fermenting={this.props.ankenyMenu} location={this.props.ankenyMenu} beverages={this.props.beverages}/>} />
+                    <Route exact path="/bettendorf" component={() => <Menu page="bettendorf" fermenting={this.props.ankenyMenu} location={this.props.bettendorfMenu} beverages={this.props.beverages} />} />
+                    <Route path="/menu/:beverageId" component={ BeverageWithId } />
                     <Redirect to="/ankeny"/>
                 </Switch>
             </div>

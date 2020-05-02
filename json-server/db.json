@@ -46,36 +46,36 @@
       "id": 6,
       "name": "Alma's Psy Claw",
       "style": "Grapefruit Hard Seltzer",
-      "image": "images/saidin.jpg",
+      "image": "images/alma.jpg",
       "description": "A Grapefruit Seltzer with some kick."
     },
     {
       "id": 7,
       "name": "Doors of Stone",
       "style": "BIPA",
-      "image": "images/saidin.jpg",
+      "image": "images/doors.jpg",
       "description": "Belgian IPA."
     },
     {
       "id": 8,
       "name": "Pool of Clarity",
       "style": "Dry Mead",
-      "image": "images/saidin.jpg",
+      "image": "images/clarity2.jpg",
       "description": "A super dry mead."
     },
     {
       "id": 9,
       "name": "Crossing Devi",
       "style": "Ordinary Bitter",
-      "image": "images/saidin.jpg",
+      "image": "images/devi.jpg",
       "description": "She's bitter as hell."
     },
     {
       "id": 10,
       "name": "Powrie Barrel Boat",
-      "style": "BBA Russian Imperial Stout",
-      "image": "images/saidin.jpg",
-      "description": "Four Roses inspired RIS."
+      "style": "BBA RIS",
+      "image": "images/redcap.jpg",
+      "description": "Four Roses inspired Russian Imperial Stout."
     },
     {
       "id": 11,
@@ -127,40 +127,53 @@
     {
       "id": 6,
       "beveragesid": 0
+    },
+    {
+      "id": 7,
+      "beveragesid": 0
+    },
+    {
+      "id": 8,
+      "beveragesid": 0
+    },
+    {
+      "id": 9,
+      "beveragesid": 0
     }
+
   ],
   "bettendorf": [
     {
       "id": 0,
-      "beveragesid": 1
+      "beveragesid": 6
     },
     {
       "id": 1,
-      "beveragesid": 13
+      "beveragesid": 1
     },
     {
       "id": 2,
-      "beveragesid": 1
+      "beveragesid": 2
     },
     {
       "id": 3,
-      "beveragesid": 1
+      "beveragesid": 3
     },
     {
       "id": 4,
-      "beveragesid": 1
+      "beveragesid": 4
     },
     {
       "id": 5,
-      "beveragesid": 1
+      "beveragesid": 5
+    },
+    {
+      "id": 6,
+      "beveragesid": 0
     },
     {
       "id": 7,
-      "beveragesid": 1
-    },
-    {
-      "id": 8,
-      "beveragesid": 1
+      "beveragesid": 10
     }
   ]
 }
