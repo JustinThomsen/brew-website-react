@@ -1,7 +1,7 @@
 {
-  "name": "frontendreact",
+  "name": "brewsitereact",
   "version": "1.0.0",
-  "description": "frontend react course",
+  "description": "reactapp",
   "main": "index.html",
   "scripts": {
     "start": "npm run lite",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JustinThomsen/FrontEndReact.git"
+    "url": "git+https://github.com/JustinThomsen/brew-website-node.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JustinThomsen/FrontEndReact/issues"
+    "url": "https://github.com/JustinThomsen/brew-website-node/issues"
   },
-  "homepage": "https://github.com/JustinThomsen/FrontEndReact#readme",
+  "homepage": "https://github.com/JustinThomsen/brew-website-node#readme",
   "dependencies": {
     "lite-server": "^2.4.0"
   }
