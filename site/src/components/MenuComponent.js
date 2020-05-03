@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Card, CardImg, CardImgOverlay, CardTitle, CardHeader, CardDeck} from 'reactstrap'
+import {Card, CardImg, CardImgOverlay, CardTitle, CardHeader, CardDeck, CardGroup} from 'reactstrap'
 import {Link} from "react-router-dom";
 import {Loading} from "./LoadingComponent";
 import {baseUrl} from "../shared/baseUrl";
@@ -48,7 +48,7 @@ const Menu = (props) => {
     function getCo2Beverages(menu, co2Count) {
         return menu.filter((beer) => {
             let index = beer.id;
-            if (index <= co2Count-1) {
+            if (index <= co2Count - 1) {
                 return beer;
             }
         });
@@ -62,10 +62,11 @@ const Menu = (props) => {
             }
         });
     }
-    function getFermentingBeverages(menu, ankenyCount){
+
+    function getFermentingBeverages(menu, ankenyCount) {
         return menu.filter((beer) => {
             let index = beer.id;
-            if (index >= ankenyCount ){
+            if (index >= ankenyCount) {
                 return beer;
             }
         });
@@ -120,30 +121,33 @@ const Menu = (props) => {
     } else
         return (
             <Fragment>
-                <Card className="fullHeightCard">
+                <div className="flex-container">
+                <CardDeck className="fullHeightCard">
                     <h3>
                         CO2
                     </h3>
                     <CardDeck className="row m-auto">
                         {co2Menu}
                     </CardDeck>
-                </Card>
-                <Card className="fullHeightCard">
+                </CardDeck>
+                <CardDeck className="fullHeightCard">
                     <h3>
                         Nitro
                     </h3>
                     <CardDeck className="row m-auto">
                         {nitroMenu}
                     </CardDeck>
-                </Card>
+                </CardDeck>
+                </div>
+
                 <hr/>
-                <Card className="fullHeightCard">
+                <Card className="fermenting">
                     <h3>
                         Fermenting
                     </h3>
-                    <CardDeck className="row m-auto fermenting">
+                    <CardGroup className="row m-auto">
                         {fermentingMenu}
-                    </CardDeck>
+                    </CardGroup>
                 </Card>
             </Fragment>
         );

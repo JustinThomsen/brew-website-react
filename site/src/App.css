@@ -5,14 +5,29 @@
     margin-right: 10px;
     width: 50em;
 }
+
 .ankeny {
     max-width: 11em;
 }
 .card-title {
     margin-bottom: 0;
 }
+.flex-container {
+   display: flex;
+    justify-content: center;
+}
+.card-deck {
+    margin: auto;
+}
+
 .fermenting {
-    align-items: center;
+    display:flex;
+    height: 100%;
+    background-color: rgba(255,255,255,0);
+}
+
+.fermenting .fullHeightCard.ankeny {
+    max-width: 9.5em;
 }
 
 .card-header {
@@ -114,7 +129,7 @@ h1,
 h2,
 h3 {
 font-family: 'Raleway', sans-serif;
-margin-top: 1%;
+margin-top: 10px;
 font-weight: 300;
 }
 
