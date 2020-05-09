@@ -95,7 +95,7 @@
       "id": 13,
       "name": "Empty",
       "style": "",
-      "image": "images/saidin.jpg",
+      "image": "images/empty.jpg",
       "description": "We had better get to work."
     },
     {
@@ -125,36 +125,43 @@
       "style": "",
       "image": "images/barrel.jpg",
       "description": "Little barrel"
+    },
+    {
+      "id": 18,
+      "name": "Haliax",
+      "style": "Dry Irish Stout",
+      "image": "images/haliax.jpg",
+      "description": "A dry Irish stout wrapped in shadow"
     }
   ],
   "ankeny": [
     {
       "id": 0,
-      "beveragesid": 0
+      "beveragesid": 18
     },
     {
       "id": 1,
-      "beveragesid": 0
+      "beveragesid": 2
     },
     {
       "id": 2,
-      "beveragesid": 0
+      "beveragesid": 13
     },
     {
       "id": 3,
-      "beveragesid": 0
+      "beveragesid": 13
     },
     {
       "id": 4,
-      "beveragesid": 0
+      "beveragesid": 13
     },
     {
       "id": 5,
-      "beveragesid": 0
+      "beveragesid": 13
     },
     {
       "id": 6,
-      "beveragesid": 0
+      "beveragesid": 13
     },
     {
       "id": 7,
