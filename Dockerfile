@@ -14,7 +14,7 @@ RUN npm ci
 RUN npm install -g react-scripts@3.4.1
 
 # add app
-COPY .. ./
+COPY . .
 
 # start app
 CMD ["npm", "start"]
