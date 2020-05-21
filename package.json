@@ -1,24 +1,38 @@
 {
-  "name": "brewsitereact",
-  "version": "1.0.0",
-  "description": "reactapp",
-  "main": "index.html",
-  "scripts": {
-    "start": "npm run lite",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lite": "lite-server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JustinThomsen/brew-website-node.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JustinThomsen/brew-website-node/issues"
-  },
-  "homepage": "https://github.com/JustinThomsen/brew-website-node#readme",
+  "name": "brew-website",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "lite-server": "^2.4.0"
-  }
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "bootstrap": "4.0.0",
+    "cross-fetch": "2.1.0",
+    "prop-types": "15.6.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-popper": "0.9.2",
+    "react-redux": "5.0.7",
+    "react-redux-form": "1.16.8",
+    "react-router-dom": "4.2.2",
+    "react-transition-group": "2.3.0",
+    "react-scripts": "^3.4.1",
+    "reactstrap": "5.0.0",
+    "redux": "3.7.2",
+    "redux-logger": "3.0.6",
+    "redux-thunk": "2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

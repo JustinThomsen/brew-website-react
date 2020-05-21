@@ -1,0 +1,36 @@
+{
+  "bettendorf": [
+    {
+      "id": 0,
+      "beveragesid": 6
+    },
+    {
+      "id": 1,
+      "beveragesid": 1
+    },
+    {
+      "id": 2,
+      "beveragesid": 2
+    },
+    {
+      "id": 3,
+      "beveragesid": 3
+    },
+    {
+      "id": 4,
+      "beveragesid": 4
+    },
+    {
+      "id": 5,
+      "beveragesid": 5
+    },
+    {
+      "id": 6,
+      "beveragesid": 0
+    },
+    {
+      "id": 7,
+      "beveragesid": 10
+    }
+  ]
+}

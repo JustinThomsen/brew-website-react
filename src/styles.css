@@ -2,61 +2,61 @@
 
 
 .devi {
-    background: url("../../json-server/public/images/devi.jpg");
+    background: url("../../public/images/devi.jpg");
     background-size: cover;
     max-width: 100%;
 }
 
 .redcap {
-    background: url("../../json-server/public/images/redcap.jpg");
+    background: url("../../public/images/redcap.jpg");
     background-size: cover;
     max-width: 100%;
 }
 
 .abyss {
-    background: url("../../json-server/public/images/abyss.jpg");
+    background: url("../../public/images/abyss.jpg");
     background-size: cover;
     max-width: 100%;
 }
 
 .doors {
-    background: url("../../json-server/public/images/doors.jpg");
+    background: url("../../public/images/doors.jpg");
     background-size: cover;
     max-width: 100%;
 }
 
 .spring {
-    background: url("../../json-server/public/images/spring.jpg");
+    background: url("../../public/images/spring.jpg");
     background-size: cover;
     max-width: 100%;
 }
 
 .clarity {
-    background: url("../../json-server/public/images/clarity2.jpeg");
+    background: url("../../public/images/clarity2.jpeg");
     background-size: cover;
     max-width: 100%;
 }
 
 .lembas {
-    background: url("../../json-server/public/images/lembas.jpg");
+    background: url("../../public/images/lembas.jpg");
     background-size: cover;
     max-width: 15%;
 }
 
 .simmon {
-    background: url("../../json-server/public/images/simmon.jpg");
+    background: url("../../public/images/simmon.jpg");
     background-size: cover;
     max-width: 100%;
 }
 
 .alma {
-    background: url("../../json-server/public/images/alma.jpg");
+    background: url("../../public/images/alma.jpg");
     background-size: cover;
     max-width: 100%;
 }
 
 .coffee {
-    background: url("../../json-server/public/images/coffee.jpg");
+    background: url("../../public/images/coffee.jpg");
     background-size: cover;
     max-width: 100%;
 }

@@ -1,24 +1,10 @@
 import * as ActionTypes from './ActionTypes';
-
 import {baseUrl} from "../shared/baseUrl";
 
 export const fetchBeverages = () => (dispatch) => {
-    dispatch(beveragesLoading(true));
 
+    dispatch(beveragesLoading(true));
     return fetch(baseUrl + 'beverages')
-        .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                var errmess = new Error(error.message);
-                throw errmess;
-            })
         .then(response => response.json())
         .then(beverages => dispatch(addBeverages(beverages)))
         .catch(error => dispatch(beveragesFailed(error.message)));
@@ -43,19 +29,6 @@ export const fetchAnkenyBeverages = () => (dispatch) => {
 
 
     return fetch(baseUrl + 'ankeny')
-        .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                var errmess = new Error(error.message);
-                throw errmess;
-            })
         .then(response => response.json())
         .then(location => dispatch(addAnkeny(location)))
         .catch(error => dispatch(locationFailed(error.message)));
@@ -65,19 +38,6 @@ export const fetchBettendorfBeverages = () => (dispatch) => {
     dispatch(locationLoading(true));
 
     return fetch(baseUrl + 'bettendorf')
-        .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                var errmess = new Error(error.message);
-                throw errmess;
-            })
         .then(response => response.json())
         .then(location => dispatch(addLocation(location)))
         .catch(error => dispatch(locationFailed(error.message)));

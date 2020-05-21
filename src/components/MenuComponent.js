@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Card, CardImg, CardImgOverlay, CardTitle, CardHeader, CardDeck, CardGroup} from 'reactstrap'
+import {Card, CardImg, CardTitle, CardHeader, CardDeck, CardGroup} from 'reactstrap'
 import {Link} from "react-router-dom";
 import {Loading} from "./LoadingComponent";
 import {baseUrl} from "../shared/baseUrl";
