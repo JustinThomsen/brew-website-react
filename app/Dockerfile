@@ -2,7 +2,7 @@
 FROM node:13.12.0-alpine
 
 # set working directory
-WORKDIR /app/
+WORKDIR /front-end/
 
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
@@ -10,11 +10,12 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install app dependencies
 COPY package.json ./
 COPY package-lock.json ./
-RUN npm ci
-RUN npm install -g react-scripts@3.4.1
+RUN npm install
 
 # add app
-COPY . .
+COPY . /front-end/
+
+EXPOSE 3000
 
 # start app
 CMD ["npm", "start"]
