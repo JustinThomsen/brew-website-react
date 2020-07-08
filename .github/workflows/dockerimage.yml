@@ -8,14 +8,18 @@ on:
 
 jobs:
 
-  build-api:
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build /api/. --file Dockerfile --tag my-image-name:brew-react
+      run: docker-compose build . 
+      
+    - uses: actions/checkout@v2
+    - name: push the Docker image
+      run: docker-compose push . 
       
     - name: Build and push Docker images
 
@@ -24,20 +28,3 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
         repository: oldeesrock\magic-bean-brewing:brew-express
-  
-  build-app:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build /app/. --file Dockerfile --tag my-image-name:brew-react
-      
-    - name: Build and push Docker images
-
-      uses: docker/build-push-action@v1.1.0
-      with:
-        username: ${{ secrets.DOCKER_HUB_USERNAME }}
-        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        repository: oldeesrock\magic-bean-brewing:brew-react
