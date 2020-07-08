@@ -15,16 +15,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker-compose build . 
-      
+      run: docker-compose build
+  
+  push:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
     - uses: actions/checkout@v2
     - name: push the Docker image
-      run: docker-compose push . 
-      
-    - name: Build and push Docker images
+      run: docker-compose push
 
-      uses: docker/build-push-action@v1.1.0
-      with:
-        username: ${{ secrets.DOCKER_HUB_USERNAME }}
-        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        repository: oldeesrock\magic-bean-brewing:brew-express
