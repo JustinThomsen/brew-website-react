@@ -4,7 +4,7 @@ services:
 
   api:
     build: ./api/
-    image: brew-website-node-api
+    image: oldeesrock/brew-website-node-api
     restart: always
     volumes:
       - ./api:/api
@@ -16,7 +16,7 @@ services:
   app:
     stdin_open: true
     build: ./app/
-    image: brew-website-node-app
+    image: oldeesrock/brew-website-node-app
     restart: always
     volumes:
       - ./app:/app
