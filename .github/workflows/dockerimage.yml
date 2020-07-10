@@ -28,11 +28,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - name: npm install and build webpack
-        run: |
-          npm install
-          npm run build
       - uses: actions/upload-artifact@master
         with:
           name: webpack artifacts
@@ -41,6 +36,7 @@ jobs:
         with:
           name: api artifacts
           path: /api/public/
+      
   deploy:
     name: Deploy Node.js app to AWS
     needs: build
