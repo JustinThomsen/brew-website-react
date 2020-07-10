@@ -15,7 +15,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker-compose build
+      run: |
+        docker-compose build
+        ls
+    - uses: actions/upload-artifact@master
+      with:
+        name: webpack artifacts
+        path: /app/public/      
+    - uses: actions/upload-artifact@master
+      with:
+        name: api artifacts
+        path: /api/public/  
+
       
     - uses: actions/checkout@v1
     - name: Docker login
@@ -23,19 +34,6 @@ jobs:
       
     - name: push the Docker image
       run: docker-compose push
-      
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/upload-artifact@master
-        with:
-          name: webpack artifacts
-          path: /app/public/      
-      - uses: actions/upload-artifact@master
-        with:
-          name: api artifacts
-          path: /api/public/
       
   deploy:
     name: Deploy Node.js app to AWS
