@@ -36,8 +36,11 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: webpack artifacts
-          path: public/
-
+          path: /app/public/      
+      - uses: actions/upload-artifact@master
+        with:
+          name: api artifacts
+          path: /api/public/
   deploy:
     name: Deploy Node.js app to AWS
     needs: build
