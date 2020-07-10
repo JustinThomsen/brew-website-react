@@ -37,7 +37,7 @@ jobs:
       
   deploy:
     name: Deploy Node.js app to AWS
-    needs: build
+    needs: build-docker
     runs-on: ubuntu-latest
 
     steps:
