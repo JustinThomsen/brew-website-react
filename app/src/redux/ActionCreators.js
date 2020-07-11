@@ -1,10 +1,9 @@
 import * as ActionTypes from './ActionTypes';
-import {baseUrl} from "../shared/baseUrl";
 
 export const fetchBeverages = () => (dispatch) => {
 
     dispatch(beveragesLoading(true));
-    return fetch(baseUrl + 'beverages')
+    return fetch('beverages')
         .then(response => response.json())
         .then(beverages => dispatch(addBeverages(beverages)))
         .catch(error => dispatch(beveragesFailed(error.message)));
@@ -28,7 +27,7 @@ export const fetchAnkenyBeverages = () => (dispatch) => {
     dispatch(locationLoading(true));
 
 
-    return fetch(baseUrl + 'ankeny')
+    return fetch('ankeny')
         .then(response => response.json())
         .then(location => dispatch(addAnkeny(location)))
         .catch(error => dispatch(locationFailed(error.message)));
@@ -37,7 +36,7 @@ export const fetchAnkenyBeverages = () => (dispatch) => {
 export const fetchBettendorfBeverages = () => (dispatch) => {
     dispatch(locationLoading(true));
 
-    return fetch(baseUrl + 'bettendorf')
+    return fetch('bettendorf')
         .then(response => response.json())
         .then(location => dispatch(addLocation(location)))
         .catch(error => dispatch(locationFailed(error.message)));

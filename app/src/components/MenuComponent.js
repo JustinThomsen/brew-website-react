@@ -2,7 +2,6 @@ import React, {Fragment} from 'react';
 import {Card, CardImg, CardTitle, CardHeader, CardDeck, CardGroup} from 'reactstrap'
 import {Link} from "react-router-dom";
 import {Loading} from "./LoadingComponent";
-import {baseUrl} from "../shared/baseUrl";
 
 function RenderMenuItem(props) {
     return (
@@ -13,7 +12,7 @@ function RenderMenuItem(props) {
                     <CardTitle className='col-12'>{props.beverage.name}</CardTitle>
                     <CardTitle className='col-12'>{props.beverage.style}</CardTitle>
                 </CardHeader>
-                <CardImg src={baseUrl + props.beverage.image} alt={props.beverage.name}/>
+                <CardImg src={props.beverage.image} alt={props.beverage.name}/>
             </Card>
         </Link>
     )

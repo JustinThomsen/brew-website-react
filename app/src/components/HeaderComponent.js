@@ -16,7 +16,6 @@ import {
     Label
 } from "reactstrap";
 import { NavLink } from 'react-router-dom';
-import { baseUrl} from "../shared/baseUrl";
 
 class Header extends Component {
     constructor(props) {

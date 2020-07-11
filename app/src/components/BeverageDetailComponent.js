@@ -6,46 +6,44 @@ import {
     CardBody,
     CardTitle,
 } from 'reactstrap'
-import { Loading } from "./LoadingComponent";
-import { baseUrl } from "../shared/baseUrl";
+import {Loading} from "./LoadingComponent";
 
-function RenderBeverage({beverage}){
-    return(
-            <Card>
-                <CardImg width="100%" src={ baseUrl + beverage.image } alt={beverage.name}/>
-                <CardBody>
-                    <CardTitle>{beverage.name}</CardTitle>
-                    <CardText>{beverage.description}</CardText>
-                </CardBody>
-            </Card>
+function RenderBeverage({beverage}) {
+    return (
+        <Card>
+            <CardImg width="100%" src={beverage.image} alt={beverage.name}/>
+            <CardBody>
+                <CardTitle>{beverage.name}</CardTitle>
+                <CardText>{beverage.description}</CardText>
+            </CardBody>
+        </Card>
     )
 }
 
 const BeverageDetail = (props) => {
-    if(props.isLoading){
-        return(
-         <div className="container">
-            <div className="row">
-                <Loading />
+    if (props.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading/>
+                </div>
             </div>
-         </div>
         );
     } else if (props.errMess) {
-        return(
-        <div className="container">
-            <div className="row">
-                <h4>{props.errMess}</h4>
+        return (
+            <div className="container">
+                <div className="row">
+                    <h4>{props.errMess}</h4>
+                </div>
             </div>
-        </div>
         )
-    }
-    else if (props.beverage != null) {
+    } else if (props.beverage != null) {
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-12">
                         <h3>{props.beverage.name}</h3>
-                        <hr />
+                        <hr/>
                     </div>
                 </div>
                 <div className="row">
