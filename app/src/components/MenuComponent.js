@@ -1,20 +1,49 @@
 import React, {Fragment} from 'react';
-import {Card, CardImg, CardTitle, CardHeader, CardDeck, CardGroup} from 'reactstrap'
+import {
+    Card,
+    CardImg,
+    CardTitle,
+    CardHeader,
+    CardDeck,
+    CardGroup,
+    ModalHeader,
+    ModalBody,
+    ModalFooter
+} from 'reactstrap'
 import {Link} from "react-router-dom";
 import {Loading} from "./LoadingComponent";
+import {Button, Modal} from 'reactstrap';
+import {useState} from "react/cjs/react.production.min";
+
 
 function RenderMenuItem(props) {
-    return (
-        <Link to={`/menu/${props.beverage.id}`}>
+    const [modal, setModal] = useState(false);
 
-            <Card className={`fullHeightCard ${props.location} mr-0 ml-1`}>
-                <CardHeader>
-                    <CardTitle className='col-12'>{props.beverage.name}</CardTitle>
-                    <CardTitle className='col-12'>{props.beverage.style}</CardTitle>
-                </CardHeader>
-                <CardImg src={props.beverage.image} alt={props.beverage.name}/>
-            </Card>
-        </Link>
+    const toggle = () => setModal(!modal);
+
+    return (
+        <Fragment>
+            <Button onClick={toggle}>
+
+                <Card className={`fullHeightCard ${props.location} mr-0 ml-1`}>
+                    <CardHeader>
+                        <CardTitle className='col-12'>{props.beverage.name}</CardTitle>
+                        <CardTitle className='col-12'>{props.beverage.style}</CardTitle>
+                    </CardHeader>
+                    <CardImg src={props.beverage.image} alt={props.beverage.name}/>
+                </Card>
+            </Button>
+            <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                <ModalBody>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
+                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                </ModalFooter>
+            </Modal>
+        </Fragment>
     )
 }
 
@@ -121,22 +150,22 @@ const Menu = (props) => {
         return (
             <Fragment>
                 <div className="flex-container">
-                <CardDeck className="fullHeightCard">
-                    <h3>
-                        CO2
-                    </h3>
-                    <CardDeck className="row m-auto">
-                        {co2Menu}
+                    <CardDeck className="fullHeightCard">
+                        <h3>
+                            CO2
+                        </h3>
+                        <CardDeck className="row m-auto">
+                            {co2Menu}
+                        </CardDeck>
                     </CardDeck>
-                </CardDeck>
-                <CardDeck className="fullHeightCard">
-                    <h3>
-                        Nitro
-                    </h3>
-                    <CardDeck className="row m-auto">
-                        {nitroMenu}
+                    <CardDeck className="fullHeightCard">
+                        <h3>
+                            Nitro
+                        </h3>
+                        <CardDeck className="row m-auto">
+                            {nitroMenu}
+                        </CardDeck>
                     </CardDeck>
-                </CardDeck>
                 </div>
 
                 <hr/>

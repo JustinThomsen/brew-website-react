@@ -18,7 +18,7 @@ router.get('/ankeny', function(req, res) {
 router.get('/bettendorf', function(req, res) {
   res.sendFile(path.join(directory, 'index.html'));
 });
-router.get('/menu', function(req, res) {
+router.get('/menu/', function(req, res) {
   res.sendFile(path.join(directory, 'index.html'));
 });
 router.get('/api/bettendorf', function(req, res) {
