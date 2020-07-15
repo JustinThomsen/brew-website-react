@@ -48,7 +48,6 @@ class Main extends Component {
                 <Switch>
                     <Route exact path="/ankeny" component={() => <Menu page="ankeny" fermenting={this.props.ankenyMenu} location={this.props.ankenyMenu} beverages={this.props.beverages}/>} />
                     <Route exact path="/bettendorf" component={() => <Menu page="bettendorf" fermenting={this.props.ankenyMenu} location={this.props.bettendorfMenu} beverages={this.props.beverages} />} />
-                    <Route path="/menu/:beverageId" component={ BeverageWithId } />
                     <Redirect to="/ankeny"/>
                 </Switch>
             </div>

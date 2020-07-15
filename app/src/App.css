@@ -1,29 +1,45 @@
 .bettendorf {
     max-width: 9.5em;
 }
+
 .bettendorf-header {
     margin-right: 10px;
     width: 50em;
 }
 
+.beverageDetail {
+    padding: 0;
+
+}
+
+.modal-content {
+    background: #d3d9df;
+}
+.fullHeightCard:hover {
+    cursor: pointer;
+}
+
 .ankeny {
     max-width: 11em;
 }
+
 .card-title {
     margin-bottom: 0;
 }
+
 .flex-container {
-   display: flex;
+    display: flex;
     justify-content: center;
 }
+
 .card-deck {
     margin: auto;
 }
 
 .fermenting {
-    display:flex;
+    display: flex;
     height: 100%;
-    background-color: rgba(255,255,255,0);
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .fermenting .fullHeightCard.ankeny {
@@ -33,15 +49,17 @@
 .card-header {
     height: 6em;
     padding: 0;
-    background: rgba(255,255,255,.4);
+    background: rgba(255, 255, 255, .4);
 }
+
 .row-header {
     margin: 0px auto;
     padding: 0px auto;
 }
+
 .fullHeightCard {
     height: 100%;
-    background-color: rgba(255,255,255,0);
+    background-color: rgba(255, 255, 255, 0);
     display: inline-block;
 }
 
@@ -93,6 +111,7 @@
 .nav-link {
     color: #000000;
 }
+
 body {
     background: url("large_Beer.jpg");
     background-size: cover;
@@ -125,12 +144,13 @@ address {
     text-align: center;
     margin: .2em auto;
 }
+
 h1,
 h2,
 h3 {
-font-family: 'Raleway', sans-serif;
-margin-top: 10px;
-font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 10px;
+    font-weight: 300;
 }
 
 h1 {
@@ -139,6 +159,7 @@ h1 {
     text-align: center;
     display: block;
 }
+
 h3 {
     font-weight: 600;
     font-size: 1.5em;

@@ -8,12 +8,13 @@ import {
     CardGroup,
     ModalHeader,
     ModalBody,
-    ModalFooter
+    ModalFooter, CardBody, CardText
 } from 'reactstrap'
 import {Link} from "react-router-dom";
 import {Loading} from "./LoadingComponent";
 import {Button, Modal} from 'reactstrap';
 import {useState} from "react/cjs/react.production.min";
+import BeverageDetail from "./BeverageDetailComponent";
 
 
 function RenderMenuItem(props) {
@@ -23,8 +24,7 @@ function RenderMenuItem(props) {
 
     return (
         <Fragment>
-            <Button onClick={toggle}>
-
+            <div className='hover' onClick={toggle}>
                 <Card className={`fullHeightCard ${props.location} mr-0 ml-1`}>
                     <CardHeader>
                         <CardTitle className='col-12'>{props.beverage.name}</CardTitle>
@@ -32,16 +32,18 @@ function RenderMenuItem(props) {
                     </CardHeader>
                     <CardImg src={props.beverage.image} alt={props.beverage.name}/>
                 </Card>
-            </Button>
+            </div>
             <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                <ModalHeader toggle={toggle}>{props.beverage.name}</ModalHeader>
                 <ModalBody>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <Card className='beverageDetail'>
+                        <CardImg width="100%" src={props.beverage.image} alt={props.beverage.name}/>
+                        <CardBody>
+                            <CardTitle>{props.beverage.style}</CardTitle>
+                            <CardText>{props.beverage.description}</CardText>
+                        </CardBody>
+                    </Card>
                 </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-                    <Button color="secondary" onClick={toggle}>Cancel</Button>
-                </ModalFooter>
             </Modal>
         </Fragment>
     )
