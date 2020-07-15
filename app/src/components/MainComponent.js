@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './HeaderComponent';
 import Menu from './MenuComponent';
-import BeverageDetail from './BeverageDetailComponent';
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import {fetchBeverages, fetchBettendorfBeverages, fetchAnkenyBeverages} from "../redux/ActionCreators";
@@ -34,14 +33,7 @@ class Main extends Component {
 
 
     render() {
-        const BeverageWithId = ({match}) => {
-            return(
-                <BeverageDetail beverage={this.props.beverages.beverages.filter((beverage) => beverage.id === parseInt(match.params.beverageId,10))[0]}
-                                isLoading={this.props.beverages.isLoading}
-                                errMess={this.props.beverages.errMess}
-                />
-            );
-        };
+
         return (
             <div>
                 <Header/>

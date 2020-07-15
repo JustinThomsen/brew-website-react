@@ -8,13 +8,11 @@ import {
     CardGroup,
     ModalHeader,
     ModalBody,
-    ModalFooter, CardBody, CardText
+    CardBody, CardText
 } from 'reactstrap'
-import {Link} from "react-router-dom";
 import {Loading} from "./LoadingComponent";
 import {Button, Modal} from 'reactstrap';
 import {useState} from "react/cjs/react.production.min";
-import BeverageDetail from "./BeverageDetailComponent";
 
 
 function RenderMenuItem(props) {
