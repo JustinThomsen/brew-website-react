@@ -12,20 +12,25 @@ router.use(express.static(directory));
 router.get('/', function (req, res) {
   res.sendFile(path.join(directory, 'index.html'));
 });
-
-/* GET home page. */
-router.get('/bettendorf', function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+router.get('/ankeny', function(req, res) {
+  res.sendFile(path.join(directory, 'index.html'));
+});
+router.get('/bettendorf', function(req, res) {
+  res.sendFile(path.join(directory, 'index.html'));
+});
+router.get('/menu', function(req, res) {
+  res.sendFile(path.join(directory, 'index.html'));
+});
+router.get('/api/bettendorf', function(req, res) {
   res.send(bettendorf);
 });
-router.get('/beverages', function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+router.get('/api/beverages', function(req, res) {
   res.send(beverages);
 });
-router.get('/ankeny', function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+router.get('/api/ankeny', function(req, res) {
   res.send(ankeny);
 });
+
 
 module.exports = router;
 

@@ -3,7 +3,7 @@ import * as ActionTypes from './ActionTypes';
 export const fetchBeverages = () => (dispatch) => {
 
     dispatch(beveragesLoading(true));
-    return fetch('beverages')
+    return fetch('api/beverages')
         .then(response => response.json())
         .then(beverages => dispatch(addBeverages(beverages)))
         .catch(error => dispatch(beveragesFailed(error.message)));
@@ -27,7 +27,7 @@ export const fetchAnkenyBeverages = () => (dispatch) => {
     dispatch(locationLoading(true));
 
 
-    return fetch('ankeny')
+    return fetch('api/ankeny')
         .then(response => response.json())
         .then(location => dispatch(addAnkeny(location)))
         .catch(error => dispatch(locationFailed(error.message)));
@@ -36,7 +36,7 @@ export const fetchAnkenyBeverages = () => (dispatch) => {
 export const fetchBettendorfBeverages = () => (dispatch) => {
     dispatch(locationLoading(true));
 
-    return fetch('bettendorf')
+    return fetch('api/bettendorf')
         .then(response => response.json())
         .then(location => dispatch(addLocation(location)))
         .catch(error => dispatch(locationFailed(error.message)));
