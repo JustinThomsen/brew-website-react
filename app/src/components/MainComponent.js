@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Header from './HeaderComponent';
 import Menu from './MenuComponent';
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+import {Switch, Route, Redirect, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 import {fetchBeverages, fetchBettendorfBeverages, fetchAnkenyBeverages} from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
@@ -14,9 +14,15 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchBeverages: () => {dispatch(fetchBeverages())},
-    fetchAnkenyBeverages: () => {dispatch(fetchAnkenyBeverages())},
-    fetchBettendorfBeverages: () => {dispatch(fetchBettendorfBeverages())}
+    fetchBeverages: () => {
+        dispatch(fetchBeverages())
+    },
+    fetchAnkenyBeverages: () => {
+        dispatch(fetchAnkenyBeverages())
+    },
+    fetchBettendorfBeverages: () => {
+        dispatch(fetchBettendorfBeverages())
+    }
 });
 
 class Main extends Component {
@@ -38,8 +44,13 @@ class Main extends Component {
             <div>
                 <Header/>
                 <Switch>
-                    <Route exact path="/ankeny" component={() => <Menu page="ankeny" fermenting={this.props.ankenyMenu} location={this.props.ankenyMenu} beverages={this.props.beverages}/>} />
-                    <Route exact path="/bettendorf" component={() => <Menu page="bettendorf" fermenting={this.props.ankenyMenu} location={this.props.bettendorfMenu} beverages={this.props.beverages} />} />
+                    <Route exact path="/ankeny" component={() => <Menu page="ankeny" fermenting={this.props.ankenyMenu}
+                                                                       location={this.props.ankenyMenu}
+                                                                       beverages={this.props.beverages}/>}/>
+                    <Route exact path="/bettendorf"
+                           component={() => <Menu page="bettendorf" fermenting={this.props.ankenyMenu}
+                                                  location={this.props.bettendorfMenu}
+                                                  beverages={this.props.beverages}/>}/>
                     <Redirect to="/ankeny"/>
                 </Switch>
             </div>

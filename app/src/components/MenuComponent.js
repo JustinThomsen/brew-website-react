@@ -11,7 +11,7 @@ import {
     CardBody, CardText
 } from 'reactstrap'
 import {Loading} from "./LoadingComponent";
-import {Button, Modal} from 'reactstrap';
+import {Modal} from 'reactstrap';
 import {useState} from "react/cjs/react.production.min";
 
 

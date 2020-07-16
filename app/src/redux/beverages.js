@@ -1,10 +1,10 @@
 import * as ActionTypes from './ActionTypes';
 
 export const Beverages = (state = {
-        isLoading: true,
-        errMess: null,
-        beverages: []
-    }, action) => {
+    isLoading: true,
+    errMess: null,
+    beverages: []
+}, action) => {
     switch (action.type) {
         case ActionTypes.ADD_BEVERAGES:
             return {...state, isLoading: false, errMess: null, beverages: action.payload}
