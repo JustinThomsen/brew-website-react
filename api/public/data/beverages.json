@@ -131,5 +131,26 @@
     "style": "Dry Irish Stout",
     "image": "images/haliax.jpg",
     "description": "A dry Irish stout wrapped in shadow"
+  },
+  {
+    "id": 19,
+    "name": "Loki's Folly",
+    "style": "Super American Stout",
+    "image": "images/loki.jpg",
+    "description": "An American Lager that even the American Gods can't live without."
+  },
+  {
+    "id": 20,
+    "name": "Guest Tap: King Sue",
+    "style": "IPA",
+    "image": "images/kingsue.jpg",
+    "description": "The O.G. King Sue."
+  },
+  {
+    "id": 21,
+    "name": "Helles Bells",
+    "style": "Helles Lager",
+    "image": "images/dresden.jpg",
+    "description": "A Munich Helles accidentally brewed a bit thinner."
   }
 ]
