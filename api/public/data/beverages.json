@@ -135,14 +135,14 @@
   {
     "id": 19,
     "name": "Loki's Folly",
-    "style": "Super American Stout",
+    "style": "Super American Lager",
     "image": "images/loki.jpg",
     "description": "An American Lager that even the American Gods can't live without."
   },
   {
     "id": 20,
     "name": "Guest Tap: King Sue",
-    "style": "IPA",
+    "style": "Double IPA",
     "image": "images/kingsue.jpg",
     "description": "The O.G. King Sue."
   },
