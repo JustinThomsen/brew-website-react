@@ -15,6 +15,7 @@
 .modal-content {
     background: #d3d9df;
 }
+
 .fullHeightCard:hover {
     cursor: pointer;
 }
@@ -46,6 +47,7 @@
 .fermenting .fullHeightCard.ankeny {
     max-width: 9.5em;
 }
+
 
 .card-header {
     height: 6em;
@@ -180,4 +182,13 @@ h5 {
     color: #000000;
 
     text-align: center;
+}
+@media only screen and (max-width: 600px) {
+    .fullHeightCard {
+        max-width: max-content;
+    }
+    h3 {
+        margin: 20px;
+        padding: 10px;
+    }
 }
