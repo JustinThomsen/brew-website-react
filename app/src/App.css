@@ -191,4 +191,7 @@ h5 {
         margin: 20px;
         padding: 10px;
     }
+    .fermenting .fullHeightCard.ankeny {
+        max-width: max-content;
+    }
 }
