@@ -2,6 +2,14 @@
     max-width: 9.5em;
 }
 
+.modal {
+ overflow-y: auto;
+}
+
+.modal-open {
+ overflow: auto;
+}
+
 .bettendorf-header {
     margin-right: 10px;
     width: 50em;
