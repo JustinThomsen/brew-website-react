@@ -18,6 +18,8 @@ classes/production/
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 
+.env
+
 # Other
 .DS_Store
 
