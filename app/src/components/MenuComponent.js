@@ -25,7 +25,7 @@ function RenderMenuItem(props) {
             <div className='hover' onClick={toggle}>
                 <Card className={`fullHeightCard ${props.location} mr-0 ml-1`}>
                     <CardHeader>
-                        <CardTitle className='col-12'>{props.beverage.name}</CardTitle>
+                        <CardTitle className='col-12'>{props.beverage.name}:</CardTitle>
                         <CardTitle className='col-12'>{props.beverage.style}</CardTitle>
                     </CardHeader>
                     <CardImg src={props.beverage.image} alt={props.beverage.name}/>
