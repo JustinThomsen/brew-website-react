@@ -57,3 +57,5 @@ fabric.properties
 #npm
 node_modules/
 
+#elasticbeanstalk
+.localstate

@@ -5,7 +5,8 @@ let bettendorf = require("../public/data/bettendorf.json");
 let beverages = require("../public/data/beverages.json");
 let ankeny = require("../public/data/ankeny.json");
 const axios = require('axios');
-axios.defaults.headers.common['X-API-Key'] = '{BREW-KEY}';
+let apikey = process.env.BREW_KEY;
+axios.defaults.headers.common['X-API-Key'] = apikey;
 
 let directory = path.join(__dirname, '..', '..', 'app', 'build');
 
