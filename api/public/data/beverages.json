@@ -152,5 +152,12 @@
     "style": "Helles Lager",
     "image": "images/dresden.jpg",
     "description": "A Munich Helles accidentally brewed a bit thinner."
+  },
+  {
+    "id": 22,
+    "name": "Saphira's First Flight",
+    "style": "New England IPA",
+    "image": "images/saphira.jpg"
+    "description": "A Falconer's flight hazy IPA dry hopped with Cascade."
   }
 ]
