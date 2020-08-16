@@ -157,7 +157,14 @@
     "id": 22,
     "name": "Saphira's First Flight",
     "style": "New England IPA",
-    "image": "images/saphira.jpg"
+    "image": "images/saphira.jpg",
     "description": "A Falconer's flight hazy IPA dry hopped with Cascade."
+  },
+  {
+    "id": 23,
+    "name": "Tir Na Nug",
+    "style": "Session IPA",
+    "image": "images/tirnanug.jpg",
+    "description": "A session IPA brewed with nugget and mosaic."
   }
 ]
