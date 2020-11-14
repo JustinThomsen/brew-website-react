@@ -166,5 +166,12 @@
     "style": "Session IPA",
     "image": "images/tirnanug.jpg",
     "description": "A session IPA brewed with nugget and mosaic."
+  },
+  {
+    "id": 24,
+    "name": "Immortal-I-Tea",
+    "style": "Hoppy Black Tea",
+    "image": "images/tirnanug.jpg",
+    "description": "A black tea dry hopped with simcoe and citra hops."
   }
 ]
