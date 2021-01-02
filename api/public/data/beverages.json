@@ -180,5 +180,19 @@
     "style": "Porter",
     "image": "images/ankers.jpg",
     "description": "A porter."
+  },
+  {
+    "id": 26,
+    "name": "Guest Tap DDH Pseudo Sue",
+    "style": "IPA",
+    "image": "images/sue.jpg",
+    "description": "Mosaic double dry hopped Pseudo Sue."
+  },
+  {
+    "id": 27,
+    "name": "Vital-I-Tea",
+    "style": "Hoppy Chamomile Tea",
+    "image": "images/vitalitea.jpg",
+    "description": "A Chamomile tea dry hopped with citra hops."
   }
 ]
