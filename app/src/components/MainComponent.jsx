@@ -35,7 +35,11 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header
+          ankenyMenu={this.props.ankenyMenu.ankenyMenu}
+          bettendorfMenu={this.props.bettendorfMenu.bettendorfMenu}
+          beverages={this.props.beverages.beverages}
+        />
         <Switch>
           <Route
             exact
