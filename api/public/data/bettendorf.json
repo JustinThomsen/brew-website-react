@@ -1,34 +1,50 @@
 [
   {
     "id": 0,
-    "beveragesid": 13
+    "beveragesid": 13,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 1,
-    "beveragesid": 13
+    "beveragesid": 13,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 2,
-    "beveragesid": 13
+    "beveragesid": 13,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 3,
-    "beveragesid": 27
+    "beveragesid": 27,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 4,
-    "beveragesid": 13
+    "beveragesid": 13,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 5,
-    "beveragesid": 26
+    "beveragesid": 26,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 6,
-    "beveragesid": 13
+    "beveragesid": 13,
+    "gas": "nitro",
+    "type": "tap"
   },
   {
     "id": 7,
-    "beveragesid": 10
+    "beveragesid": 10,
+    "gas": "nitro",
+    "type": "tap"
   }
 ]

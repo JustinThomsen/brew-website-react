@@ -1,62 +1,84 @@
 [
   {
     "id": 0,
-    "beveragesid": 1
+    "beveragesid": 1,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 1,
-    "beveragesid": 19
+    "beveragesid": 19,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 2,
-    "beveragesid": 2
+    "beveragesid": 2,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 3,
-    "beveragesid": 21
+    "beveragesid": 21,
+    "gas": "co2",
+    "type": "tap"
   },
   {
     "id": 4,
-    "beveragesid": 18
+    "beveragesid": 18,
+    "gas": "nitro",
+    "type": "tap"
   },
   {
     "id": 5,
-    "beveragesid": 13
+    "beveragesid": 13,
+    "gas": "nitro",
+    "type": "tap"
   },
   {
     "id": 6,
-    "beveragesid": 13
+    "beveragesid": 13,
+    "gas": "nitro",
+    "type": "tap"
   },
   {
     "id": 7,
-    "beveragesid": 14
+    "beveragesid": 14,
+    "type": "fermenter"
   },
   {
     "id": 8,
-    "beveragesid": 2
+    "beveragesid": 2,
+    "type": "fermenting"
   },
   {
     "id": 9,
-    "beveragesid": 15
+    "beveragesid": 15,
+    "type": "fermenter"
   },
   {
     "id": 10,
-    "beveragesid": 25
+    "beveragesid": 25,
+    "type": "fermenting"
   },
   {
     "id": 11,
-    "beveragesid": 16
+    "beveragesid": 16,
+    "type": "fermenter"
   },
   {
     "id": 12,
-    "beveragesid": 25
+    "beveragesid": 25,
+    "type": "fermenting"
   },
   {
     "id": 13,
-    "beveragesid": 17
+    "beveragesid": 17,
+    "type": "fermenter"
   },
   {
     "id": 14,
-    "beveragesid": 10
+    "beveragesid": 10,
+    "type": "barrelage"
   }
 ]
