@@ -23,7 +23,7 @@ const s3 = new AWS.S3();
 async function retrieveFile(filename, res) {
   try {
     const getParams = {
-      Bucket: 'elasticbeanstalk-us-west-2-381871787484',
+      Bucket: 'magic-bean-jsons',
       Key: filename,
     };
 
