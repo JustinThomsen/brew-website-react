@@ -39,7 +39,7 @@ jobs:
         # directory to upload
         source_dir: ./api/public/data
         # destination directory for upload
-        destination_dir: magic-bean-brewing/public/
+        destination_dir: /
       
     - name: AWS Elastic Beanstalk cli
       uses: hmanzur/actions-aws-eb@v1.0.0
