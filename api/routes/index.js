@@ -9,6 +9,8 @@ const axios = require('axios');
 
 const apikey = process.env.BREW_KEY;
 const beverages = require('../public/data/beverages.json');
+/*const ankeny = require('../public/data/ankeny.json');
+const bettendorf = require('../public/data/bettendorf.json');*/
 
 axios.defaults.headers.common['X-API-Key'] = apikey;
 
@@ -77,6 +79,7 @@ router.get('/api/bettendorf', (req, res) => {
     }, (error) => {
       console.log(error);
     });
+  //res.send(bettendorf);
 });
 
 router.get('/api/beverages', (req, res) => {
@@ -91,6 +94,7 @@ router.get('/api/ankeny', (req, res) => {
     }, (error) => {
       console.log(error);
     });
+  //res.send(ankeny);
 });
 
 router.get('/api/fermentationDetails/', (req, res) => {

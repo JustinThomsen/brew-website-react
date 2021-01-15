@@ -2,49 +2,65 @@
   {
     "id": 0,
     "beveragesid": 13,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 1
   },
   {
     "id": 1,
     "beveragesid": 13,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 2
   },
   {
     "id": 2,
     "beveragesid": 13,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 3
   },
   {
     "id": 3,
     "beveragesid": 27,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 4
   },
   {
     "id": 4,
     "beveragesid": 13,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 5
   },
   {
     "id": 5,
     "beveragesid": 26,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 6
   },
   {
     "id": 6,
     "beveragesid": 13,
-    "gas": "nitro",
-    "type": "tap"
+    "gas": "Nitro",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 7
   },
   {
     "id": 7,
     "beveragesid": 10,
-    "gas": "nitro",
-    "type": "tap"
+    "gas": "Nitro",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 8
   }
 ]

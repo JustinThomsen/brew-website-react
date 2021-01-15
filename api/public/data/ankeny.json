@@ -2,83 +2,121 @@
   {
     "id": 0,
     "beveragesid": 1,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 1
   },
   {
     "id": 1,
     "beveragesid": 19,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 2
   },
   {
     "id": 2,
     "beveragesid": 2,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 3
   },
   {
     "id": 3,
     "beveragesid": 21,
-    "gas": "co2",
-    "type": "tap"
+    "gas": "Co2",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 4
   },
   {
     "id": 4,
     "beveragesid": 18,
-    "gas": "nitro",
-    "type": "tap"
+    "gas": "Nitro",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 5
   },
   {
     "id": 5,
     "beveragesid": 13,
-    "gas": "nitro",
-    "type": "tap"
+    "gas": "Nitro",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 6
   },
   {
     "id": 6,
     "beveragesid": 13,
-    "gas": "nitro",
-    "type": "tap"
+    "gas": "Nitro",
+    "type": "tap",
+    "fermenter": "",
+    "taphandle": 7
   },
   {
     "id": 7,
     "beveragesid": 14,
-    "type": "fermenter"
+    "gas": "",
+    "type": "fermenter",
+    "fermenter": "",
+    "taphandle": ""
   },
   {
     "id": 8,
     "beveragesid": 2,
-    "type": "fermenting"
+    "gas": "",
+    "type": "fermenting",
+    "fermenter": "More Beer Fermenter",
+    "taphandle": ""
   },
   {
     "id": 9,
     "beveragesid": 15,
-    "type": "fermenter"
+    "gas": "",
+    "type": "fermenter",
+    "fermenter": "",
+    "taphandle": ""
   },
   {
     "id": 10,
     "beveragesid": 25,
-    "type": "fermenting"
+    "gas": "",
+    "type": "fermenting",
+    "fermenter": "SS Brewtech fermenter 1",
+    "taphandle": ""
   },
   {
     "id": 11,
     "beveragesid": 16,
-    "type": "fermenter"
+    "gas": "",
+    "type": "fermenter",
+    "fermenter": "",
+    "taphandle": ""
   },
   {
     "id": 12,
     "beveragesid": 25,
-    "type": "fermenting"
+    "gas": "",
+    "type": "fermenting",
+    "fermenter": "SS Brewtech fermenter 2",
+    "taphandle": ""
   },
   {
     "id": 13,
     "beveragesid": 17,
-    "type": "fermenter"
+    "gas": "",
+    "type": "fermenter",
+    "fermenter": "",
+    "taphandle": ""
   },
   {
     "id": 14,
     "beveragesid": 10,
-    "type": "barrelage"
+    "gas": "",
+    "type": "fermenting",
+    "fermenter": "Barrel",
+    "taphandle": ""
   }
 ]

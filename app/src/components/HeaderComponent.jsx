@@ -6,21 +6,27 @@ import {
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
-function renderTapSelection(tapId, menu) {
-  let id = 'ankeny-' + tapId;
+function renderTapSelection(tapId, menu, location) {
+  let id = location + ' - ' + tapId;
   let beerOnTapCurrently = menu.find((tap) => {
     return tap.id === tapId;
   }) || {};
-
-  return <>
-    <label htmlFor={id}> {beerOnTapCurrently.gas} - {tapId + 1}</label>
-    <select name={id} id={id}>
-      <option value="">--Please choose a beer--</option>
-      {this.props.beverages.map((beer) => {
-        return <option value={beer.id} selected={beer.id === beerOnTapCurrently.beveragesid}>{beer.name}</option>;
-      })}
-    </select>
-  </>
+  console.log("beerCurrently : " + JSON.stringify(beerOnTapCurrently));
+  if (beerOnTapCurrently.type === 'fermenter'){
+    return <></>;
+  }
+  return (
+    <>
+      <label htmlFor={id}> {beerOnTapCurrently.gas}{beerOnTapCurrently.fermenter} - {beerOnTapCurrently.taphandle}</label>
+      <select name={id} id={id}>
+        <option value="">--Please choose a beer--</option>
+        {this.props.beverages.map((beer) => {
+          return <option value={beer.id} selected={beer.id === beerOnTapCurrently.beveragesid}>{beer.name}</option>
+        })}
+      </select>
+      <br />
+    </>
+  )
 }
 
 class Header extends Component {
@@ -87,11 +93,11 @@ class Header extends Component {
               <FormGroup>
                 <h3>Ankeny</h3>
                 {this.props.ankenyMenu.map((tap) => {
-                  return renderTapSelection.call(this, tap.id, this.props.ankenyMenu);
+                  return renderTapSelection.call(this, tap.id, this.props.ankenyMenu, "ankeny");
                 })}
                 <h3>Bettendorf</h3>
                 {this.props.bettendorfMenu.map((tap) => {
-                  return renderTapSelection.call(this, tap.id, this.props.bettendorfMenu);
+                  return renderTapSelection.call(this, tap.id, this.props.bettendorfMenu, "bettendorf");
                 })}
                 <Label htmlFor="password">Password</Label>
                 <Input
