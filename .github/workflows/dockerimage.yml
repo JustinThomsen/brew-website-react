@@ -33,7 +33,7 @@ jobs:
         # aws key id
         aws_key_id: ${{ secrets.AWS_S3_KEY }}
         # aws secret access key
-        aws_secret_access_key: ${{ secrets.AWS_S3_PWD }}
+        aws_secret_access_key: ${{ secrets.AWS_S3_PW }}
         # aws bucket name
         aws_bucket: ${{ secrets.S3_BUCKET }}
         # directory to upload
