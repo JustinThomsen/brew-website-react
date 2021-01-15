@@ -11,7 +11,6 @@ function renderTapSelection(tapId, menu, location) {
   let beerOnTapCurrently = menu.find((tap) => {
     return tap.id === tapId;
   }) || {};
-  console.log("beerCurrently : " + JSON.stringify(beerOnTapCurrently));
   if (beerOnTapCurrently.type === 'fermenter'){
     return <></>;
   }
@@ -80,14 +79,14 @@ class Header extends Component {
                 <Button outline onClick={this.toggleModal}>
                   <span className="fa fa-sign-in fa-lg" />
                   {' '}
-                  Login
+                  Update
                 </Button>
               </NavItem>
             </Nav>
           </div>
         </Navbar>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader isOpen={this.state.isModalOpen} toggle={this.toggleModal}>Login</ModalHeader>
+          <ModalHeader isOpen={this.state.isModalOpen} toggle={this.toggleModal}>Update</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.handleLogin}>
               <FormGroup>
