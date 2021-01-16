@@ -27,7 +27,7 @@ export const fetchAnkenyBeverages = () => (dispatch) => {
     dispatch(locationLoading(true));
 
 
-    return fetch('api/ankeny')
+    return fetch('/api/ankeny')
         .then(response => response.json())
         .then(location => dispatch(addAnkeny(location)))
         .catch(error => dispatch(locationFailed(error.message)));

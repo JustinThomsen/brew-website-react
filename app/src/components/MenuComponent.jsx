@@ -51,9 +51,11 @@ function RenderMenuItem(props) {
 }
 
 const Menu = (props) => {
-  let co2Menu = () => <div />;
-  let nitroMenu = () => <div />;
+  let secondGas = () => <div />;
+  let firstGas = () => <div />;
   let fermentingMenu = () => <div />;
+  let locationFirstGas = "";
+  let locationSecondGas = "";
 
   function getMenu(beverages) {
     return beverages.map((menuItem) => {
@@ -70,59 +72,48 @@ const Menu = (props) => {
     });
   }
 
-  function getCo2Beverages(menu, co2Count) {
+  function getCo2Beverages(menu) {
     return menu.filter((beer) => {
-      const index = beer.id;
-      if (index <= co2Count - 1) {
-        return beer;
-      }
+      return beer.gas === "Co2";
+
     });
   }
 
-  function getNitroBeverages(menu, co2Count, totalCount) {
+  function getNitroBeverages(menu) {
     return menu.filter((beer) => {
-      const index = beer.id;
-      if (index >= co2Count && index < totalCount) {
-        return beer;
-      }
+      return beer.gas === "Nitro";
     });
   }
 
-  function getFermentingBeverages(menu, ankenyCount) {
+  function getFermentingBeverages(menu) {
     return menu.filter((beer) => {
-      const index = beer.id;
-      if (index >= ankenyCount) {
-        return beer;
-      }
+      return beer.type !== 'tap';
     });
   }
 
   if (props.page === 'ankeny') {
-    const co2Count = 4;
-    const nitroCount = 3;
-    const ankenyCount = co2Count + nitroCount;
+    locationFirstGas = "CO2";
+    locationSecondGas = "Nitro";
 
     const { ankenyMenu } = props.location;
-    const co2Beverages = getCo2Beverages(ankenyMenu, co2Count);
-    const nitroBeverages = getNitroBeverages(ankenyMenu, co2Count, ankenyCount);
-    const fermentingBeverages = getFermentingBeverages(props.fermenting.ankenyMenu, ankenyCount);
+    const co2Beverages = getCo2Beverages(ankenyMenu);
+    const nitroBeverages = getNitroBeverages(ankenyMenu);
+    const fermentingBeverages = getFermentingBeverages(props.fermenting.ankenyMenu);
 
-    co2Menu = getMenu(co2Beverages);
-    nitroMenu = getMenu(nitroBeverages);
+    firstGas = getMenu(co2Beverages);
+    secondGas = getMenu(nitroBeverages);
     fermentingMenu = getMenu(fermentingBeverages);
   } else if (props.page === 'bettendorf') {
-    const co2Count = 6;
-    const nitroCount = 2;
-    const totalCount = co2Count + nitroCount;
-    const ankenyCount = 7;
+    locationFirstGas = "Nitro";
+    locationSecondGas = "CO2";
 
     const { bettendorfMenu } = props.location;
-    const co2Beverages = getCo2Beverages(bettendorfMenu, co2Count);
-    const nitroBeverages = getNitroBeverages(bettendorfMenu, co2Count, totalCount);
-    const fermentingBeverages = getFermentingBeverages(props.fermenting.ankenyMenu, ankenyCount);
+    const co2Beverages = getCo2Beverages(bettendorfMenu);
+    const nitroBeverages = getNitroBeverages(bettendorfMenu);
+    const fermentingBeverages = getFermentingBeverages(props.fermenting.ankenyMenu);
 
-    co2Menu = getMenu(co2Beverages);
-    nitroMenu = getMenu(nitroBeverages);
+    secondGas = getMenu(co2Beverages);
+    firstGas = getMenu(nitroBeverages);
     fermentingMenu = getMenu(fermentingBeverages);
   }
   if (props.beverages.isLoading) {
@@ -145,32 +136,34 @@ const Menu = (props) => {
     <>
       <div className="flex-container">
         <CardDeck className="fullHeightCard">
-          <h3>
-              Nitro
-          </h3>
+            <h3>
+              {locationFirstGas}
+            </h3>
           <CardDeck className="row m-auto">
-            {nitroMenu}
+              {firstGas}
           </CardDeck>
         </CardDeck>
         <CardDeck className="fullHeightCard">
           <h3>
-              CO2
+            {locationSecondGas}
           </h3>
           <CardDeck className="row m-auto">
-              {co2Menu}
+              {secondGas}
           </CardDeck>
         </CardDeck>
       </div>
 
       <hr />
-      <Card className="fermenting">
-        <h3>
-          Fermenting
-        </h3>
-        <CardGroup className="row m-auto">
-          {fermentingMenu}
-        </CardGroup>
-      </Card>
+      <div className="fermenting">
+        <CardDeck className="fullHeightCard">
+          <h3>
+            Fermenting
+          </h3>
+          <CardDeck className="row m-auto">
+            {fermentingMenu}
+          </CardDeck>
+        </CardDeck>
+      </div>
     </>
   );
 };

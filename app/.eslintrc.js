@@ -8,7 +8,7 @@ module.exports = {
           ['material-ui/DatePicker', '../custom/DatePicker'],
           ['material-ui', 'material-ui-ie10'],
         ],
-        extensions: ['.ts', '.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.json'],
       },
     },
   },
@@ -21,7 +21,7 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
   ],
-  parser: '@typescript-eslint/parser',
+  parser: 'esprima',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -31,7 +31,6 @@ module.exports = {
   },
   plugins: [
     'react',
-    '@typescript-eslint',
   ],
   rules: {
     'import/extensions': [
@@ -40,8 +39,6 @@ module.exports = {
       {
         js: 'never',
         jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
       },
     ],
   },
