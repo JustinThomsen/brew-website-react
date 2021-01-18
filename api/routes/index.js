@@ -1,4 +1,5 @@
 const express = require('express');
+
 const path = require('path');
 
 const router = express.Router();
@@ -9,8 +10,8 @@ const axios = require('axios');
 
 const apikey = process.env.BREW_KEY;
 const beverages = require('../public/data/beverages.json');
-/*const ankeny = require('../public/data/ankeny.json');
-const bettendorf = require('../public/data/bettendorf.json');*/
+
+const serverPassword = process.env.UPDATE_PWD;
 
 axios.defaults.headers.common['X-API-Key'] = apikey;
 
@@ -38,6 +39,31 @@ async function retrieveFile(filename, res) {
         success: false,
         err,
       });
+  }
+}
+//probably a better way to refactor this - making 2 api calls somehow
+async function postJSONUpdate(object) {
+  try {
+    const ankenyAsString = JSON.stringify(object.ankeny);
+    const bettendorfAsString = JSON.stringify(object.bettendorf);
+    const getParamsAnkeny = {
+      Bucket: 'magic-bean-jsons',
+      Key: 'pwd.json',
+      Body: ankenyAsString,
+    };
+    const getParamsBettendorf = {
+      Bucket: 'magic-bean-jsons',
+      Key: 'pwd2.json',
+      Body: bettendorfAsString,
+    };
+
+    const ankenyResponse = await s3.putObject(getParamsAnkeny).promise();
+    const bettendorfResponse = await s3.putObject(getParamsBettendorf).promise();
+
+    const response = [ankenyResponse, bettendorfResponse];
+    return response;
+  } catch (err) {
+    return err;
   }
 }
 
@@ -79,7 +105,30 @@ router.get('/api/bettendorf', (req, res) => {
     }, (error) => {
       console.log(error);
     });
-  //res.send(bettendorf);
+});
+
+router.post('/api/update', (req, res) => {
+  const { password } = req.body[0];
+  try {
+    if (password === serverPassword) {
+      postJSONUpdate(req.body[0]).then((response) => {
+        res.status(200).send({
+          success: true,
+          response,
+        });
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      success: false,
+      err,
+    });
+  }
+  if (password !== serverPassword) {
+    res.status(401).send({
+    });
+  }
 });
 
 router.get('/api/beverages', (req, res) => {
@@ -94,7 +143,6 @@ router.get('/api/ankeny', (req, res) => {
     }, (error) => {
       console.log(error);
     });
-  //res.send(ankeny);
 });
 
 router.get('/api/fermentationDetails/', (req, res) => {
