@@ -78,3 +78,4 @@ fabric.properties
 
 #npm
 node_modules/
+/src/images/

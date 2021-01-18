@@ -1,18 +1,19 @@
-import {createStore, combineReducers, applyMiddleware} from "redux";
-import {Beverages} from "./beverages";
-import {Bettendorf} from "./bettendorf";
-import {Ankeny} from "./ankeny";
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
+import { Beverages } from './beverages'
+import { Bettendorf } from './bettendorf'
+import { Ankeny } from './ankeny'
+import { Update } from './update'
 
 export const ConfigureStore = () => {
-    const store = createStore(
-        combineReducers({
-            beverages: Beverages,
-            bettendorfMenu: Bettendorf,
-            ankenyMenu: Ankeny,
-        }),
-        applyMiddleware(thunk, logger)
-    );
-    return store;
-}
+  return createStore(
+    combineReducers({
+      beverages: Beverages,
+      bettendorfMenu: Bettendorf,
+      ankenyMenu: Ankeny,
+      update: Update,
+    }),
+    applyMiddleware(thunk, logger),
+  );
+};

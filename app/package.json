@@ -22,6 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-server": "json-server --watch db.json -p 3001 -d 2000 --routes routes.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -36,6 +37,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "json-server": "^0.16.3",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-import-resolver-alias": "^1.1.2",

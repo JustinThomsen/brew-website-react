@@ -1,7 +1,7 @@
 [
   {
-  "password": "pitterpatter",
-    "ankeny":
+    "password": "pitterpatter",
+    "ankeny": [
       {
         "id": 0,
         "beveragesid": 1,
@@ -9,15 +9,15 @@
         "type": "tap",
         "fermenter": "",
         "taphandle": 1
-      },
-    "bettendorf":
-      {
-        "id": 0,
-        "beveragesid": 3,
-        "gas": "Co2",
-        "type": "tap",
-        "fermenter": "",
-        "taphandle": 2
       }
+    ],
+    "bettendorf": {
+      "id": 0,
+      "beveragesid": 3,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 2
+    }
   }
 ]

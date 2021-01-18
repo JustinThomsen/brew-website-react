@@ -12,6 +12,13 @@ const apikey = process.env.BREW_KEY;
 const beverages = require('../public/data/beverages.json');
 
 const serverPassword = process.env.UPDATE_PWD;
+//the password is just going to be sent in the json which probably means someone could figure it out when the right
+//password is sent, maybe based on the response?  Should I encrypt it somehow?
+//my errors suck - I dont know how to build HTTP responses
+//also don't know the best way to return a view or if I actually should (on error condition I get the views dont
+//exist error
+
+//its probably also time to start learning testing but wanted to focus on learning the basics first
 
 axios.defaults.headers.common['X-API-Key'] = apikey;
 
@@ -107,15 +114,14 @@ router.get('/api/bettendorf', (req, res) => {
     });
 });
 
-router.post('/api/update', (req, res) => {
+router.post('/api/update', async (req, res) => {
   const { password } = req.body[0];
   try {
     if (password === serverPassword) {
-      postJSONUpdate(req.body[0]).then((response) => {
-        res.status(200).send({
-          success: true,
-          response,
-        });
+      const response = await postJSONUpdate(req.body[0]);
+      res.status(200).send({
+        success: true,
+        response,
       });
     }
   } catch (err) {
