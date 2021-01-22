@@ -12,9 +12,7 @@ export const Ankeny = (state = {
             return {...state, isLoading: true, errMess: null, ankenyMenu: []}
         case ActionTypes.LOCATION_FAILED:
             return {...state, isLoading: false, errMess: action.payload, ankenyMenu: []}
-
         default:
             return state;
-
     }
 }

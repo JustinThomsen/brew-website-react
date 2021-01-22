@@ -1,5 +1,4 @@
 import * as ActionTypes from './ActionTypes';
-//need help with the action type
 export const Update = (state = {
   isLoading: false,
   errMess: null,

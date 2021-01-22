@@ -5,6 +5,7 @@ import {
   NavItem, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+
 function renderTapSelection(tapId, menu, location) {
   let id = location + ' - ' + tapId;
   let beerOnTapCurrently = menu.find((tap) => {
@@ -38,29 +39,20 @@ class Header extends Component {
   }
 
   handleUpdate(event) {
-    let newMenus = [
-      {
-        password: this.password.value,
-        ankeny:
-          {
-            "id": 0,
-            "beveragesid": 1,
-            "gas": "Co2",
-            "type": "tap",
-            "fermenter": "adam",
-            "taphandle": 1
-          },
-        bettendorf:
-          {
-            "id": 0,
-            "beveragesid": 3,
-            "gas": "Co2",
-            "type": "tap",
-            "fermenter": "",
-            "taphandle": 2
-          }
-      }
-    ];
+    let ankenyMenuAsString = JSON.stringify(this.props.ankenyMenu).trim();
+    let bettendorfMenuAsString = JSON.stringify(this.props.bettendorfMenu).trim();
+    let newBettendorfMenu = JSON.parse(bettendorfMenuAsString);
+    let newAnkenyMenu = JSON.parse(ankenyMenuAsString);
+    try {
+      let newMenus = [
+        {
+          password: this.password.value,
+          ankeny:
+            this.createNewMenu(newAnkenyMenu, this.props.ankenyMenu, 'ankeny'),
+          bettendorf:
+            this.createNewMenu(newBettendorfMenu, this.props.bettendorfMenu, 'bettendorf')
+        }
+      ];
 
     const updateHeaderState = this.toggleModal;
     this.props.updateTaps(newMenus, () => {
@@ -68,6 +60,19 @@ class Header extends Component {
       updateHeaderState();
     });
     event.preventDefault();
+    } catch (err){
+      console.log(err);
+    }
+  }
+
+  createNewMenu (newMenu, currentMenu, location) {
+    currentMenu.map((tap) => {
+      if (tap.type === 'tap' || tap.type === 'fermenting') {
+        let currentTap = location + ' - ' + tap.id
+        newMenu[tap.id].beveragesid = parseInt(document.getElementById(currentTap).selectedOptions[0].value);
+      }
+    })
+    return newMenu;
   }
 
   toggleModal() {

@@ -1,0 +1,388 @@
+{
+  "ankeny": [
+    {
+      "id": 0,
+      "beveragesid": 1,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 1
+    },
+    {
+      "id": 1,
+      "beveragesid": 19,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 2
+    },
+    {
+      "id": 2,
+      "beveragesid": 2,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 3
+    },
+    {
+      "id": 3,
+      "beveragesid": 21,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 4
+    },
+    {
+      "id": 4,
+      "beveragesid": 18,
+      "gas": "Nitro",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 5
+    },
+    {
+      "id": 5,
+      "beveragesid": 13,
+      "gas": "Nitro",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 6
+    },
+    {
+      "id": 6,
+      "beveragesid": 13,
+      "gas": "Nitro",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 7
+    },
+    {
+      "id": 7,
+      "beveragesid": 14,
+      "gas": "",
+      "type": "fermenter",
+      "fermenter": "",
+      "taphandle": ""
+    },
+    {
+      "id": 8,
+      "beveragesid": 2,
+      "gas": "",
+      "type": "fermenting",
+      "fermenter": "More Beer Fermenter",
+      "taphandle": ""
+    },
+    {
+      "id": 9,
+      "beveragesid": 15,
+      "gas": "",
+      "type": "fermenter",
+      "fermenter": "",
+      "taphandle": ""
+    },
+    {
+      "id": 10,
+      "beveragesid": 25,
+      "gas": "",
+      "type": "fermenting",
+      "fermenter": "SS Brewtech fermenter 1",
+      "taphandle": ""
+    },
+    {
+      "id": 11,
+      "beveragesid": 16,
+      "gas": "",
+      "type": "fermenter",
+      "fermenter": "",
+      "taphandle": ""
+    },
+    {
+      "id": 12,
+      "beveragesid": 25,
+      "gas": "",
+      "type": "fermenting",
+      "fermenter": "SS Brewtech fermenter 2",
+      "taphandle": ""
+    },
+    {
+      "id": 13,
+      "beveragesid": 17,
+      "gas": "",
+      "type": "fermenter",
+      "fermenter": "",
+      "taphandle": ""
+    },
+    {
+      "id": 14,
+      "beveragesid": 10,
+      "gas": "",
+      "type": "fermenting",
+      "fermenter": "Barrel",
+      "taphandle": ""
+    }
+  ],
+  "bettendorf": [
+    {
+      "id": 0,
+      "beveragesid": 13,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 1
+    },
+    {
+      "id": 1,
+      "beveragesid": 13,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 2
+    },
+    {
+      "id": 2,
+      "beveragesid": 13,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 3
+    },
+    {
+      "id": 3,
+      "beveragesid": 27,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 4
+    },
+    {
+      "id": 4,
+      "beveragesid": 13,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 5
+    },
+    {
+      "id": 5,
+      "beveragesid": 26,
+      "gas": "Co2",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 6
+    },
+    {
+      "id": 6,
+      "beveragesid": 13,
+      "gas": "Nitro",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 7
+    },
+    {
+      "id": 7,
+      "beveragesid": 10,
+      "gas": "Nitro",
+      "type": "tap",
+      "fermenter": "",
+      "taphandle": 8
+    }
+  ],
+  "beverages": [
+    {
+      "id": 0,
+      "name": "What In The Abyss",
+      "style": "Baltic Porter",
+      "image": "images/abyss.jpg",
+      "description": "A Baltic Porter."
+    },
+    {
+      "id": 1,
+      "name": "Lembas Bread",
+      "style": "Hefeweizen",
+      "image": "images/lembas.jpg",
+      "description": "A Hefeweizen with notes of banana."
+    },
+    {
+      "id": 2,
+      "name": "Chichen Itza",
+      "style": "Mexican Lager",
+      "image": "images/chichen.jpg",
+      "description": "Cervesa, Mexican style with flaked corn."
+    },
+    {
+      "id": 3,
+      "name": "New Spring",
+      "style": "IPA",
+      "image": "images/spring.jpg",
+      "description": "A Centennial only IPA"
+    },
+    {
+      "id": 4,
+      "name": "Eld Vintic",
+      "style": "Vienna Lager",
+      "image": "images/simmon.jpg",
+      "description": "Marzen style Vienna Lager."
+    },
+    {
+      "id": 5,
+      "name": "Cleansing Saidin",
+      "style": "IPA",
+      "image": "images/saidin.jpg",
+      "description": "Cascade and Citra IPA bittered with Centennial."
+    },
+    {
+      "id": 6,
+      "name": "Alma's Psy Claw",
+      "style": "Grapefruit Hard Seltzer",
+      "image": "images/alma.jpg",
+      "description": "A Grapefruit Seltzer with some kick."
+    },
+    {
+      "id": 7,
+      "name": "Doors of Stone",
+      "style": "BIPA",
+      "image": "images/doors.jpg",
+      "description": "Belgian IPA."
+    },
+    {
+      "id": 8,
+      "name": "Pool of Clarity",
+      "style": "Dry Mead",
+      "image": "images/clarity2.jpg",
+      "description": "A super dry mead."
+    },
+    {
+      "id": 9,
+      "name": "Crossing Devi",
+      "style": "Ordinary Bitter",
+      "image": "images/devi.jpg",
+      "description": "She's bitter as hell."
+    },
+    {
+      "id": 10,
+      "name": "Powrie Barrel Boat",
+      "style": "BBA RIS",
+      "image": "images/redcap.jpg",
+      "description": "Four Roses inspired Russian Imperial Stout."
+    },
+    {
+      "id": 11,
+      "name": "Covfefe",
+      "style": "Cold Brew Coffee",
+      "image": "images/saidin.jpg",
+      "description": "Cold Brewed and tapped up."
+    },
+    {
+      "id": 12,
+      "name": "Seven Words",
+      "style": "Rothfuss Mead",
+      "image": "images/saidin.jpg",
+      "description": "A mead that will kill kings."
+    },
+    {
+      "id": 13,
+      "name": "Empty",
+      "style": "",
+      "image": "images/empty.jpg",
+      "description": "We had better get to work."
+    },
+    {
+      "id": 14,
+      "name": "MoreBeer Fermenter",
+      "style": "",
+      "image": "images/bigboy.jpg",
+      "description": "14 Gallon heated and cooled conical."
+    },
+    {
+      "id": 15,
+      "name": "SS Brewtech Fermenter 1",
+      "style": "",
+      "image": "images/littleguy.jpg",
+      "description": "7 Gallon heated and cooled conical"
+    },
+    {
+      "id": 16,
+      "name": "SS Brewtech Fermenter 2",
+      "style": "",
+      "image": "images/littleguy.jpg",
+      "description": "7 Gallon heated and cooled conical"
+    },
+    {
+      "id": 17,
+      "name": "Barrel",
+      "style": "",
+      "image": "images/barrel.jpg",
+      "description": "Little barrel"
+    },
+    {
+      "id": 18,
+      "name": "Haliax",
+      "style": "Dry Irish Stout",
+      "image": "images/haliax.jpg",
+      "description": "A dry Irish stout wrapped in shadow"
+    },
+    {
+      "id": 19,
+      "name": "Loki's Folly",
+      "style": "American Rice Lager",
+      "image": "images/loki.jpg",
+      "description": "An American Lager that even the American Gods can't live without."
+    },
+    {
+      "id": 20,
+      "name": "Guest Tap King Sue",
+      "style": "Double IPA",
+      "image": "images/kingsue.jpg",
+      "description": "The O.G. King Sue."
+    },
+    {
+      "id": 21,
+      "name": "Helles Bells",
+      "style": "Helles Lager",
+      "image": "images/dresden.jpg",
+      "description": "A Munich Helles accidentally brewed a bit thinner."
+    },
+    {
+      "id": 22,
+      "name": "Saphira's First Flight",
+      "style": "New England IPA",
+      "image": "images/saphira.jpg",
+      "description": "A Falconer's flight hazy IPA dry hopped with Cascade."
+    },
+    {
+      "id": 23,
+      "name": "Tir Na Nug",
+      "style": "Session IPA",
+      "image": "images/tirnanug.jpg",
+      "description": "A session IPA brewed with nugget and mosaic."
+    },
+    {
+      "id": 24,
+      "name": "Immortal-I-Tea",
+      "style": "Hoppy Black Tea",
+      "image": "images/tirnanug.jpg",
+      "description": "A black tea dry hopped with simcoe and citra hops."
+    },
+    {
+      "id": 25,
+      "name": "Anker's",
+      "style": "Porter",
+      "image": "images/ankers.jpg",
+      "description": "A porter."
+    },
+    {
+      "id": 26,
+      "name": "Guest Tap DDH Pseudo Sue",
+      "style": "IPA",
+      "image": "images/sue.jpg",
+      "description": "Mosaic double dry hopped Pseudo Sue."
+    },
+    {
+      "id": 27,
+      "name": "Vital-I-Tea",
+      "style": "Hoppy Chamomile Tea",
+      "image": "images/vitalitea.jpg",
+      "description": "A Chamomile tea dry hopped with citra hops."
+    }
+  ]
+}

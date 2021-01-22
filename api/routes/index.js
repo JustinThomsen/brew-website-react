@@ -12,13 +12,6 @@ const apikey = process.env.BREW_KEY;
 const beverages = require('../public/data/beverages.json');
 
 const serverPassword = process.env.UPDATE_PWD;
-//the password is just going to be sent in the json which probably means someone could figure it out when the right
-//password is sent, maybe based on the response?  Should I encrypt it somehow?
-//my errors suck - I dont know how to build HTTP responses
-//also don't know the best way to return a view or if I actually should (on error condition I get the views dont
-//exist error
-
-//its probably also time to start learning testing but wanted to focus on learning the basics first
 
 axios.defaults.headers.common['X-API-Key'] = apikey;
 
@@ -51,16 +44,18 @@ async function retrieveFile(filename, res) {
 //probably a better way to refactor this - making 2 api calls somehow
 async function postJSONUpdate(object) {
   try {
-    const ankenyAsString = JSON.stringify(object.ankeny);
-    const bettendorfAsString = JSON.stringify(object.bettendorf);
+    let ankenyAsString = JSON.stringify(object.ankeny, null, 2);
+    let bettendorfAsString = JSON.stringify(object.bettendorf, null, 2);
     const getParamsAnkeny = {
       Bucket: 'magic-bean-jsons',
-      Key: 'pwd.json',
+      Key: 'ankeny.json',
+      ContentType: 'application/json',
       Body: ankenyAsString,
     };
     const getParamsBettendorf = {
       Bucket: 'magic-bean-jsons',
-      Key: 'pwd2.json',
+      Key: 'bettendorf.json',
+      ContentType: 'application/json',
       Body: bettendorfAsString,
     };
 
