@@ -22,6 +22,24 @@ AWS.config.update({
 });
 
 const s3 = new AWS.S3();
+// probably a better way to refactor this - making 2 api calls somehow
+router.use(express.static(directory));
+
+router.get('/', (req, res) => {
+  res.sendFile(path.join(directory, 'index.html'));
+});
+
+router.get('/ankeny', (req, res) => {
+  res.sendFile(path.join(directory, 'index.html'));
+});
+
+router.get('/bettendorf', (req, res) => {
+  res.sendFile(path.join(directory, 'index.html'));
+});
+
+router.get('/menu/', (req, res) => {
+  res.sendFile(path.join(directory, 'index.html'));
+});
 
 async function retrieveFile(filename, res) {
   try {
@@ -41,11 +59,35 @@ async function retrieveFile(filename, res) {
       });
   }
 }
-//probably a better way to refactor this - making 2 api calls somehow
+
+router.get('/api/beverages', (req, res) => {
+  res.send(beverages);
+});
+
+router.get('/api/bettendorf', (req, res) => {
+  let bettendorf = retrieveFile('bettendorf.json')
+    .then((response) => {
+      bettendorf = response;
+      res.send(bettendorf);
+    }, (error) => {
+      console.log(error);
+    });
+});
+
+router.get('/api/ankeny', (req, res) => {
+  let ankeny = retrieveFile('ankeny.json')
+    .then((response) => {
+      ankeny = response;
+      res.send(ankeny);
+    }, (error) => {
+      console.log(error);
+    });
+});
+
 async function postJSONUpdate(object) {
   try {
-    let ankenyAsString = JSON.stringify(object.ankeny, null, 2);
-    let bettendorfAsString = JSON.stringify(object.bettendorf, null, 2);
+    const ankenyAsString = JSON.stringify(object.ankeny, null, 2);
+    const bettendorfAsString = JSON.stringify(object.bettendorf, null, 2);
     const getParamsAnkeny = {
       Bucket: 'magic-bean-jsons',
       Key: 'ankeny.json',
@@ -68,46 +110,6 @@ async function postJSONUpdate(object) {
     return err;
   }
 }
-
-async function getBrewSessions() {
-  const sessions = await axios.get('/v1/brewsessions', { baseURL: 'https://api.brewersfriend.com' })
-    .then((response) => response.data, (error) => {
-      console.log(error);
-    });
-  return sessions.brewessions;
-}
-
-function getFermentationDataByBeerName(brewSessions, beerName) {
-  return brewSessions.filter((session) => session.recipe_title === beerName);
-}
-
-router.use(express.static(directory));
-
-router.get('/', (req, res) => {
-  res.sendFile(path.join(directory, 'index.html'));
-});
-
-router.get('/ankeny', (req, res) => {
-  res.sendFile(path.join(directory, 'index.html'));
-});
-
-router.get('/bettendorf', (req, res) => {
-  res.sendFile(path.join(directory, 'index.html'));
-});
-
-router.get('/menu/', (req, res) => {
-  res.sendFile(path.join(directory, 'index.html'));
-});
-
-router.get('/api/bettendorf', (req, res) => {
-  let bettendorf = retrieveFile('bettendorf.json')
-    .then((response) => {
-      bettendorf = response;
-      res.send(bettendorf);
-    }, (error) => {
-      console.log(error);
-    });
-});
 
 router.post('/api/update', async (req, res) => {
   const { password } = req.body[0];
@@ -132,27 +134,86 @@ router.post('/api/update', async (req, res) => {
   }
 });
 
-router.get('/api/beverages', (req, res) => {
-  res.send(beverages);
+async function getBrewSessions() {
+  try {
+    const sessions = await axios.get('/v1/brewsessions', { baseURL: 'https://api.brewersfriend.com' });
+    return sessions.data;
+  } catch (err) {
+    console.log(err);
+  }
+  return {};
+}
+
+async function getStatsByBrewSessionID(sessionID) {
+  try {
+    const fermentData = await axios.get(`/v1/fermentation/${sessionID}`, { baseURL: 'https://api.brewersfriend.com' });
+    return fermentData.data;
+  } catch (err) {
+    console.log(err);
+  }
+  return {};
+}
+
+async function getLatestBrewSessionFermentationDataByRecipeID(recipeID) {
+  try {
+    const recipeData = await axios.get(`/v1/recipes/${recipeID}`, { baseURL: 'https://api.brewersfriend.com' });
+    const brewSessions = JSON.parse(recipeData.data.recipes[0].brew_sessions);
+    const lastIndex = parseInt(brewSessions.length - 1);
+    const sessionId = brewSessions[lastIndex].breweventid;
+    return await getStatsByBrewSessionID(sessionId);
+  } catch (err) {
+    console.log(err);
+  }
+  return {};
+}
+
+function getFermentationDataForBrewSessionsByRecipeID(brewSessions, recipeid) {
+  try {
+    const fermentationdata = brewSessions.filter((session) => session.recipeid === recipeid);
+    return fermentationdata;
+  } catch (err) {
+    console.log(err);
+  }
+  return {};
+}
+// get session with recipeid
+// get latest reading from the session
+
+router.get('/api/fermentationDetails/', async (req, res) => {
+  try {
+    const brewSessions = await getBrewSessions();
+    const sessions = brewSessions.brewsessions;
+    const beerFermentationStatus = await getFermentationDataForBrewSessionsByRecipeID(sessions, req.query.recipeid);
+    const deviceReading = JSON.parse(beerFermentationStatus[0].device_reading);
+    console.log(deviceReading);
+    const latestReading = deviceReading.last_reading;
+    console.log(latestReading);
+    res.send(JSON.stringify(latestReading, null, 2));
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
 });
 
-router.get('/api/ankeny', (req, res) => {
-  let ankeny = retrieveFile('ankeny.json')
-    .then((response) => {
-      ankeny = response;
-      res.send(ankeny);
-    }, (error) => {
-      console.log(error);
-    });
+router.get('/api/brewsession/', async (req, res) => {
+  try {
+    const fermentationStats = await getStatsByBrewSessionID(req.query.sessionId);
+    res.send(JSON.stringify(fermentationStats, null, 2));
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
 });
 
-router.get('/api/fermentationDetails/', (req, res) => {
-  const brewSessions = getBrewSessions();
-  brewSessions
-    .then((result) => {
-      const beerFermentationStatus = getFermentationDataByBeerName(result, req.query.name);
-      res.send(JSON.stringify(beerFermentationStatus));
-    });
+router.get('/api/latestpoint/', async (req, res) => {
+  try {
+    const fermentationStats = await getLatestBrewSessionFermentationDataByRecipeID(req.query.recipeid);
+    let stats = fermentationStats.readings;
+    res.send(JSON.stringify(stats,null,2));
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
 });
 
 module.exports = router;
