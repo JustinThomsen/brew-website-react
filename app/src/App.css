@@ -183,6 +183,19 @@ h3 {
     margin-right: 0px;
 }
 
+.card-img-overlay {
+    font-family: Raleway;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: #000000 1px 1px;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, .5);
+    text-align: left;
+    display: flex;
+    padding:0;
+    top: auto;
+}
+
 h5 {
     font-family: Raleway;
     font-weight: bold;

@@ -183,11 +183,9 @@ router.get('/api/fermentationDetails/', async (req, res) => {
   try {
     const brewSessions = await getBrewSessions();
     const sessions = brewSessions.brewsessions;
-    const beerFermentationStatus = await getFermentationDataForBrewSessionsByRecipeID(sessions, req.query.recipeid);
+    const beerFermentationStatus = await getFermentationDataForBrewSessionsByRecipeID(sessions, "946173");//req.query.recipeid
     const deviceReading = JSON.parse(beerFermentationStatus[0].device_reading);
-    console.log(deviceReading);
     const latestReading = deviceReading.last_reading;
-    console.log(latestReading);
     res.send(JSON.stringify(latestReading, null, 2));
   } catch (err) {
     console.log(err);

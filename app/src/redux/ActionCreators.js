@@ -1,5 +1,18 @@
 import * as ActionTypes from './ActionTypes';
 
+export const addFermentation = (fermentation) => ({
+  type: ActionTypes.ADD_FERMENTATION,
+  payload: fermentation,
+});
+
+export const fermentationLoading = () => ({
+  type: ActionTypes.FERMENTATION_LOADING,
+});
+
+export const fermentationFailed = (errMess) => ({
+  type: ActionTypes.FERMENTATION_FAILED,
+  payload: errMess,
+});
 export const addBeverages = (beverages) => ({
   type: ActionTypes.ADD_BEVERAGES,
   payload: beverages,
@@ -33,9 +46,8 @@ export const locationFailed = (errMess) => ({
   payload: errMess,
 });
 
-export const updateTaps = (update) => ({
+export const updateTaps = () => ({
   type: ActionTypes.UPDATE_TAPS,
-  // payload: update,
 });
 
 export const updateLoading = () => ({
@@ -49,7 +61,7 @@ export const updateFailed = (errMess) => ({
 
 export const fetchBeverages = function () {
   return function (dispatch) {
-    dispatch(beveragesLoading(true))
+    dispatch(beveragesLoading(true));
     return fetch('api/beverages')
       .then((response) => response.json())
       .then((beverages) => {
@@ -78,6 +90,15 @@ export const fetchBettendorfBeverages = () => (dispatch) => {
     .catch((error) => dispatch(locationFailed(error.message)));
 };
 
+export const fetchFermentation = () => (dispatch) => {
+  dispatch(fermentationLoading(true));
+
+  return fetch('api/fermentationDetails/')
+    .then((response) => response.json())
+    .then((fermentation) => dispatch(addFermentation(fermentation)))
+    .catch((error) => dispatch(fermentationFailed(error.message)));
+};
+
 export const sendUpdatedTaps = (newMenus, onSuccess) => (dispatch) => {
   dispatch(updateLoading());
   fetch('api/update',
@@ -85,7 +106,7 @@ export const sendUpdatedTaps = (newMenus, onSuccess) => (dispatch) => {
       method: 'post',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify([
         {

@@ -7,6 +7,8 @@ export const Update = (state = {
   switch (action.type) {
     case ActionTypes.LOCATION_LOADING:
       return {...state, isLoading: false, successMess: null, errMess: null}
+    case ActionTypes.FERMENTATION_LOADING:
+      return {...state, errMess: null, fermentation: [], isLoading: true}
     case ActionTypes.UPDATE_TAPS:
       return {...state, isLoading: false, successMess: 'Fuck ya', errMess: null}
     case ActionTypes.UPDATE_LOADING:

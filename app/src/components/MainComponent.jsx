@@ -9,7 +9,8 @@ import {
   fetchBeverages,
   fetchBettendorfBeverages,
   fetchAnkenyBeverages,
-  sendUpdatedTaps
+  sendUpdatedTaps,
+  fetchFermentation
 } from '../redux/ActionCreators'
 
 const mapStateToProps = (state) => {
@@ -19,12 +20,16 @@ const mapStateToProps = (state) => {
     ankenyMenu: state.ankenyMenu,
     bettendorfMenu: state.bettendorfMenu,
     update: state.update,
+    fermentation: state.fermentation,
   };
 }
 
 const mapDispatchToProps = (dispatch) => ({
   fetchBeverages: () => {
     dispatch(fetchBeverages())
+  },
+  fetchFermentation: () => {
+    dispatch(fetchFermentation())
   },
   fetchAnkenyBeverages: () => {
     dispatch(fetchAnkenyBeverages())
@@ -43,6 +48,7 @@ class Main extends Component {
     this.props.fetchBeverages()
     this.props.fetchBettendorfBeverages()
     this.props.fetchAnkenyBeverages()
+    this.props.fetchFermentation()
   }
 
   render () {
@@ -65,6 +71,8 @@ class Main extends Component {
                 fermenting={this.props.ankenyMenu}
                 location={this.props.ankenyMenu}
                 beverages={this.props.beverages}
+                fermentation={this.props.fermentation}
+                getFermentation={this.props.fetchFermentation}
               />
             )}
           />
@@ -77,6 +85,7 @@ class Main extends Component {
                 fermenting={this.props.ankenyMenu}
                 location={this.props.bettendorfMenu}
                 beverages={this.props.beverages}
+                fermentation={this.props.fermentation}
               />
             )}
           />

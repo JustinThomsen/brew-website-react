@@ -6,6 +6,8 @@ export const Ankeny = (state = {
     ankenyMenu: []
 }, action) => {
     switch (action.type) {
+        case ActionTypes.FERMENTATION_LOADING:
+            return {...state, errMess: null, fermentation: [], isLoading: false}
         case ActionTypes.ADD_ANKENY:
             return {...state, isLoading: false, errMess: null, ankenyMenu: action.payload}
         case ActionTypes.LOCATION_LOADING:

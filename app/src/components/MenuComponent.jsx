@@ -5,20 +5,36 @@ import {
   CardTitle,
   CardHeader,
   CardDeck,
-  CardGroup,
   ModalHeader,
   ModalBody,
   CardBody,
   CardText,
-  Modal,
-} from 'reactstrap';
+  Modal, CardImgOverlay,
+} from 'reactstrap'
 import { useState } from 'react/cjs/react.production.min';
 import { Loading } from './LoadingComponent';
 
+function RenderFermentationItem(props){
+  const beerStatus = props.listOfFermentersAndFermentingBeer;
+  const listOfFermentingBeers = beerStatus.filter((fermenting) => fermenting.type === "fermenting");
+  const bevIDsOfFermentingBeers = listOfFermentingBeers.map((beer)=> beer.beveragesid);
+    if (bevIDsOfFermentingBeers.includes(props.bevid)) {
+      return (
+        <CardImgOverlay className="overlay">
+          SG: {props.tempAndSG.SG}
+          <br/>
+          Temp: {props.tempAndSG.Temp}F
+        </CardImgOverlay>
+      )
+    }
+
+  return <></>
+}
 function RenderMenuItem(props) {
   const [modal, setModal] = useState(false);
-
   const toggle = () => setModal(!modal);
+  //props.fermentation list is the list of fermenters and fermenting beer
+  //props.fermentationData is the latest reading from the api/fermenting call
 
   return (
     <>
@@ -31,7 +47,8 @@ function RenderMenuItem(props) {
             </CardTitle>
             <CardTitle className="col-12">{props.beverage.style}</CardTitle>
           </CardHeader>
-          <CardImg src={props.beverage.image} alt={props.beverage.name} />
+            <CardImg src={props.beverage.image} alt={props.beverage.name} />
+            <RenderFermentationItem bevid={props.bevid} tempAndSG={props.fermentationData.fermentation} listOfFermentersAndFermentingBeer={props.fermentationList}/>
         </Card>
       </div>
       <Modal isOpen={modal} toggle={toggle}>
@@ -60,12 +77,15 @@ const Menu = (props) => {
   function getMenu(beverages) {
     return beverages.map((menuItem) => {
       const beverageList = props.beverages.beverages;
-
       return (
         <Fragment key={menuItem.id}>
           <RenderMenuItem
             location={props.page}
             beverage={beverageList.filter((beverage) => beverage.id === menuItem.beveragesid)[0]}
+            fermentationData={props.fermentation}
+            fullMenu={props.location}
+            bevid={menuItem.beveragesid}
+            fermentationList={beverages}
           />
         </Fragment>
       );

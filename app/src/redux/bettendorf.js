@@ -6,6 +6,8 @@ export const Bettendorf = (state = {
     bettendorfMenu: []
 }, action) => {
     switch (action.type) {
+        case ActionTypes.FERMENTATION_LOADING:
+            return {...state, errMess: null, fermentation: [], isLoading: false}
         case ActionTypes.ADD_LOCATION:
             return {...state, isLoading: false, errMess: null, bettendorfMenu: action.payload}
         case ActionTypes.LOCATION_LOADING:
