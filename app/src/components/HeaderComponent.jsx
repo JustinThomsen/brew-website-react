@@ -67,7 +67,7 @@ class Header extends Component {
 
   createNewMenu (newMenu, currentMenu, location) {
     currentMenu.map((tap) => {
-      if (tap.type === 'tap' || tap.type === 'fermenting') {
+      if (tap.type === 'tap' || tap.type === 'fermenting' || tap.type === 'barrel') {
         let currentTap = location + ' - ' + tap.id
         newMenu[tap.id].beveragesid = parseInt(document.getElementById(currentTap).selectedOptions[0].value);
       }

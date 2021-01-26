@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "beveragesid": 1,
+    "beveragesid": 13,
     "gas": "Co2",
     "type": "tap",
     "fermenter": "",
@@ -9,7 +9,7 @@
   },
   {
     "id": 1,
-    "beveragesid": 19,
+    "beveragesid": 13,
     "gas": "Co2",
     "type": "tap",
     "fermenter": "",
@@ -17,7 +17,7 @@
   },
   {
     "id": 2,
-    "beveragesid": 2,
+    "beveragesid": 13,
     "gas": "Co2",
     "type": "tap",
     "fermenter": "",
@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "beveragesid": 21,
+    "beveragesid": 13,
     "gas": "Co2",
     "type": "tap",
     "fermenter": "",
@@ -33,7 +33,7 @@
   },
   {
     "id": 4,
-    "beveragesid": 18,
+    "beveragesid": 13,
     "gas": "Nitro",
     "type": "tap",
     "fermenter": "",
@@ -81,7 +81,7 @@
   },
   {
     "id": 10,
-    "beveragesid": 25,
+    "beveragesid": 21,
     "gas": "",
     "type": "fermenting",
     "fermenter": "SS Brewtech fermenter 1",
@@ -97,7 +97,7 @@
   },
   {
     "id": 12,
-    "beveragesid": 25,
+    "beveragesid": 19,
     "gas": "",
     "type": "fermenting",
     "fermenter": "SS Brewtech fermenter 2",
@@ -115,7 +115,7 @@
     "id": 14,
     "beveragesid": 10,
     "gas": "",
-    "type": "fermenting",
+    "type": "barrel",
     "fermenter": "Barrel",
     "taphandle": ""
   }

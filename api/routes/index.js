@@ -180,13 +180,28 @@ function getFermentationDataForBrewSessionsByRecipeID(brewSessions, recipeid) {
 // get latest reading from the session
 
 router.get('/api/fermentationDetails/', async (req, res) => {
-  try {
+  async function getReadingForRecipe(recipeid) {
     const brewSessions = await getBrewSessions();
     const sessions = brewSessions.brewsessions;
-    const beerFermentationStatus = await getFermentationDataForBrewSessionsByRecipeID(sessions, "946173");//req.query.recipeid
+    const beerFermentationStatus = await getFermentationDataForBrewSessionsByRecipeID(sessions, recipeid);// req.query.recipeid
+    if (recipeid === ""){
+      return {};
+    }
     const deviceReading = JSON.parse(beerFermentationStatus[0].device_reading);
     const latestReading = deviceReading.last_reading;
-    res.send(JSON.stringify(latestReading, null, 2));
+    return latestReading;
+  }
+  try {
+    const ankeny = await retrieveFile('ankeny.json');
+    const fermenting = ankeny.filter((beer) => beer.type === 'fermenting');
+    const beersFermenting = fermenting.flatMap(
+      (beer) => beverages.filter((beverage) => beverage.id === beer.beveragesid),
+    );
+    const recipesFermenting = beersFermenting.map((beer) => beer.recipeid);
+    const getReadingsFromRecipes = async () => Promise.all(recipesFermenting.map(
+      (recipe) => getReadingForRecipe(recipe),
+    ));
+    getReadingsFromRecipes().then((data) => res.send(JSON.stringify(data, null, 2)));
   } catch (err) {
     console.log(err);
     res.send(err);
@@ -206,8 +221,8 @@ router.get('/api/brewsession/', async (req, res) => {
 router.get('/api/latestpoint/', async (req, res) => {
   try {
     const fermentationStats = await getLatestBrewSessionFermentationDataByRecipeID(req.query.recipeid);
-    let stats = fermentationStats.readings;
-    res.send(JSON.stringify(stats,null,2));
+    const stats = fermentationStats.readings;
+    res.send(JSON.stringify(stats, null, 2));
   } catch (err) {
     console.log(err);
     res.send(err);
