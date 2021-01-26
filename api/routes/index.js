@@ -20,7 +20,7 @@ AWS.config.update({
   secretAccessKey: process.env.AWS_PWD,
   region: 'us-west-2',
 });
-
+//need to figure out how to know which reading is which.
 const s3 = new AWS.S3();
 // probably a better way to refactor this - making 2 api calls somehow
 router.use(express.static(directory));
