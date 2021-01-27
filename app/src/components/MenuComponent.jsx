@@ -16,14 +16,15 @@ import { Loading } from './LoadingComponent';
 
 function RenderFermentationItem(props){
   const beerStatus = props.listOfFermentersAndFermentingBeer;
+  const currentSGAndTemp = props.tempAndSGReadings;
   const listOfFermentingBeers = beerStatus.filter((fermenting) => fermenting.type === "fermenting");
   const bevIDsOfFermentingBeers = listOfFermentingBeers.map((beer)=> beer.beveragesid);
     if (bevIDsOfFermentingBeers.includes(props.bevid)) {
       return (
         <CardImgOverlay className="overlay">
-          SG: {props.tempAndSG.SG}
+          SG: {currentSGAndTemp.SG}
           <br/>
-          Temp: {props.tempAndSG.Temp}F
+          Temp: {currentSGAndTemp.Temp}F
         </CardImgOverlay>
       )
     }
@@ -35,7 +36,8 @@ function RenderMenuItem(props) {
   const toggle = () => setModal(!modal);
   //props.fermentation list is the list of fermenters and fermenting beer
   //props.fermentationData is the latest reading from the api/fermenting call
-
+  console.log("props.fermentationData.fermentation");
+  console.log(JSON.stringify(props.fermentationData.fermentation));
   return (
     <>
       <div className="hover" onClick={toggle}>
@@ -48,7 +50,7 @@ function RenderMenuItem(props) {
             <CardTitle className="col-12">{props.beverage.style}</CardTitle>
           </CardHeader>
             <CardImg src={props.beverage.image} alt={props.beverage.name} />
-            <RenderFermentationItem bevid={props.bevid} tempAndSG={props.fermentationData.fermentation} listOfFermentersAndFermentingBeer={props.fermentationList}/>
+            <RenderFermentationItem bevid={props.bevid} tempAndSGReadings={props.fermentationData.fermentation} listOfFermentersAndFermentingBeer={props.fermentationList}/>
         </Card>
       </div>
       <Modal isOpen={modal} toggle={toggle}>
