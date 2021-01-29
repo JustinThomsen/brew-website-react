@@ -10,7 +10,6 @@ export const Beverages = (state = {
             return {...state, isLoading: false, errMess: null, beverages: action.payload}
         case ActionTypes.BEVERAGES_LOADING:
             return {...state, isLoading: true, errMess: null, beverages: []}
-
         case ActionTypes.BEVERAGES_FAILED:
             return {...state, isLoading: false, errMess: action.payload, beverages: []}
 

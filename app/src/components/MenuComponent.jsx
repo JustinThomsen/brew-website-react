@@ -13,51 +13,17 @@ import {
 } from 'reactstrap'
 import { useState } from 'react/cjs/react.production.min';
 import { Loading } from './LoadingComponent';
-//somehow things are trying to happen when they have longer load times?
 function RenderFermentationItem(props){
   const beerStatus = props.listOfFermentersAndFermentingBeer;
-  console.log("i hate you")
-  console.log(props.tempAndSGReadings);
   const listOfFermentingBeers = beerStatus.filter((fermenting) => fermenting.type === "fermenting");
   const bevIDsOfFermentingBeers = listOfFermentingBeers.map((beer)=> beer.beveragesid);
     if (bevIDsOfFermentingBeers.includes(props.bevid)) {
-      console.log(props.tempAndSGReadings);
-      //const currentReading = props.tempAndSGReadings.find((reading) => reading.recipe === props.beverage.recipeid);
-      const fakeData = [
-        {
-          Timepoint: '44220.71687201389',
-          Temp: '72.0',
-          SG: '1',
-          Beer: 'PURPLE',
-          Color: 'PURPLE',
-          Comment: '',
-          recipe: '946173'
-        },
-        {
-          Timepoint: '44010.33984872685',
-          Temp: '55.0',
-          SG: '1.065',
-          Beer: 'PURPLE',
-          Color: 'PURPLE',
-          Comment: '',
-          recipe: '962957'
-        },
-        {
-          Timepoint: '44058.79540991898',
-          Temp: '999.0',
-          SG: '1.004',
-          Beer: 'PURPLE',
-          Color: 'PURPLE',
-          Comment: '',
-          recipe: '1016791'
-        }
-      ]
-      const currentReading = fakeData.find((reading) => reading.recipe === props.beverage.recipeid);
+      const currentReading = props.tempAndSGReadings.find((reading) => reading.recipe === props.beverage.recipeid);
       return (
         <CardImgOverlay className="overlay">
-          SG: {currentReading.SG}
+          SG: {typeof currentReading === 'undefined' ? null : currentReading.SG}
           <br/>
-          Temp: {currentReading.Temp}F
+          Temp: {typeof currentReading === 'undefined' ? null : currentReading.Temp}F
         </CardImgOverlay>
       )
     }
@@ -67,10 +33,6 @@ function RenderFermentationItem(props){
 function RenderMenuItem(props) {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
-  //props.fermentation list is the list of fermenters and fermenting beer
-  //props.fermentationData is the latest reading from the api/fermenting call
-  console.log("props.fermentationData.fermentation");
-  console.log(JSON.stringify(props.fermentationData.fermentation));
   return (
     <>
       <div className="hover" onClick={toggle}>

@@ -167,37 +167,29 @@ async function getLatestBrewSessionFermentationDataByRecipeID(recipeID) {
   return {};
 }
 
-function getFermentationDataForBrewSessionsByRecipeID(brewSessions, recipeid) {
+function getFermentationDataByRecipeID(brewSessions, recipeid) {
   try {
-    const fermentationdata = brewSessions.filter((session) => session.recipeid === recipeid);
+    const fermentationdata = brewSessions.find((session) => session.recipeid === recipeid);
     return fermentationdata;
   } catch (err) {
     console.log(err);
   }
   return {};
 }
-// get session with recipeid
-// get latest reading from the session
 
 router.get('/api/fermentationDetails/', async (req, res) => {
   async function getReadingForRecipe(recipeid) {
     const brewSessions = await getBrewSessions();
     const sessions = brewSessions.brewsessions;
-    const beerFermentationStatus = await getFermentationDataForBrewSessionsByRecipeID(sessions, recipeid);// req.query.recipeid
+    const beerFermentationStatus = await getFermentationDataByRecipeID(sessions, recipeid);// req.query.recipeid
     if (recipeid === '') {
       return {};
     }
-    const deviceReading = JSON.parse(beerFermentationStatus[0].device_reading);
+    const deviceReading = JSON.parse(beerFermentationStatus.device_reading);
     const latestReading = deviceReading.last_reading;
     latestReading.recipe = recipeid;
-    const readingList = {
-      recipe: recipeid,
-      readings: latestReading,
-    };
-    console.log(readingList);
-    console.log(latestReading);
     return latestReading;
-    }
+  }
   try {
     const ankeny = await retrieveFile('ankeny.json');
     const fermenting = ankeny.filter((beer) => beer.type === 'fermenting');

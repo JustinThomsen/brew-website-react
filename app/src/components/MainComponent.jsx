@@ -45,10 +45,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Main extends Component {
   componentDidMount () {
+    this.props.fetchFermentation()
     this.props.fetchBeverages()
     this.props.fetchBettendorfBeverages()
     this.props.fetchAnkenyBeverages()
-    this.props.fetchFermentation()
   }
 
   render () {
@@ -72,7 +72,6 @@ class Main extends Component {
                 location={this.props.ankenyMenu}
                 beverages={this.props.beverages}
                 fermentation={this.props.fermentation}
-                getFermentation={this.props.fetchFermentation}
               />
             )}
           />
