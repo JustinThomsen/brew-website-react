@@ -20,7 +20,7 @@ AWS.config.update({
   secretAccessKey: process.env.AWS_PWD,
   region: 'us-west-2',
 });
-//need to figure out how to know which reading is which.
+// need to figure out how to know which reading is which.
 const s3 = new AWS.S3();
 // probably a better way to refactor this - making 2 api calls somehow
 router.use(express.static(directory));
@@ -184,13 +184,20 @@ router.get('/api/fermentationDetails/', async (req, res) => {
     const brewSessions = await getBrewSessions();
     const sessions = brewSessions.brewsessions;
     const beerFermentationStatus = await getFermentationDataForBrewSessionsByRecipeID(sessions, recipeid);// req.query.recipeid
-    if (recipeid === ""){
+    if (recipeid === '') {
       return {};
     }
     const deviceReading = JSON.parse(beerFermentationStatus[0].device_reading);
     const latestReading = deviceReading.last_reading;
+    latestReading.recipe = recipeid;
+    const readingList = {
+      recipe: recipeid,
+      readings: latestReading,
+    };
+    console.log(readingList);
+    console.log(latestReading);
     return latestReading;
-  }
+    }
   try {
     const ankeny = await retrieveFile('ankeny.json');
     const fermenting = ankeny.filter((beer) => beer.type === 'fermenting');
@@ -198,10 +205,10 @@ router.get('/api/fermentationDetails/', async (req, res) => {
       (beer) => beverages.filter((beverage) => beverage.id === beer.beveragesid),
     );
     const recipesFermenting = beersFermenting.map((beer) => beer.recipeid);
-    const getReadingsFromRecipes = async () => Promise.all(recipesFermenting.map(
+    const getReadingsFromRecipes = async () => Promise.all(recipesFermenting.flatMap(
       (recipe) => getReadingForRecipe(recipe),
     ));
-    getReadingsFromRecipes().then((data) => res.send(JSON.stringify(data, null, 2)));
+    getReadingsFromRecipes().then((data) => res.send(data));
   } catch (err) {
     console.log(err);
     res.send(err);

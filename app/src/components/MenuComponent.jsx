@@ -13,18 +13,51 @@ import {
 } from 'reactstrap'
 import { useState } from 'react/cjs/react.production.min';
 import { Loading } from './LoadingComponent';
-
+//somehow things are trying to happen when they have longer load times?
 function RenderFermentationItem(props){
   const beerStatus = props.listOfFermentersAndFermentingBeer;
-  const currentSGAndTemp = props.tempAndSGReadings;
+  console.log("i hate you")
+  console.log(props.tempAndSGReadings);
   const listOfFermentingBeers = beerStatus.filter((fermenting) => fermenting.type === "fermenting");
   const bevIDsOfFermentingBeers = listOfFermentingBeers.map((beer)=> beer.beveragesid);
     if (bevIDsOfFermentingBeers.includes(props.bevid)) {
+      console.log(props.tempAndSGReadings);
+      //const currentReading = props.tempAndSGReadings.find((reading) => reading.recipe === props.beverage.recipeid);
+      const fakeData = [
+        {
+          Timepoint: '44220.71687201389',
+          Temp: '72.0',
+          SG: '1',
+          Beer: 'PURPLE',
+          Color: 'PURPLE',
+          Comment: '',
+          recipe: '946173'
+        },
+        {
+          Timepoint: '44010.33984872685',
+          Temp: '55.0',
+          SG: '1.065',
+          Beer: 'PURPLE',
+          Color: 'PURPLE',
+          Comment: '',
+          recipe: '962957'
+        },
+        {
+          Timepoint: '44058.79540991898',
+          Temp: '999.0',
+          SG: '1.004',
+          Beer: 'PURPLE',
+          Color: 'PURPLE',
+          Comment: '',
+          recipe: '1016791'
+        }
+      ]
+      const currentReading = fakeData.find((reading) => reading.recipe === props.beverage.recipeid);
       return (
         <CardImgOverlay className="overlay">
-          SG: {currentSGAndTemp.SG}
+          SG: {currentReading.SG}
           <br/>
-          Temp: {currentSGAndTemp.Temp}F
+          Temp: {currentReading.Temp}F
         </CardImgOverlay>
       )
     }
@@ -50,7 +83,7 @@ function RenderMenuItem(props) {
             <CardTitle className="col-12">{props.beverage.style}</CardTitle>
           </CardHeader>
             <CardImg src={props.beverage.image} alt={props.beverage.name} />
-            <RenderFermentationItem bevid={props.bevid} tempAndSGReadings={props.fermentationData.fermentation} listOfFermentersAndFermentingBeer={props.fermentationList}/>
+            <RenderFermentationItem bevid={props.bevid} beverage = {props.beverage} tempAndSGReadings={props.fermentationData.fermentation} listOfFermentersAndFermentingBeer={props.fermentationList}/>
         </Card>
       </div>
       <Modal isOpen={modal} toggle={toggle}>
