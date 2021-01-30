@@ -108,13 +108,13 @@ export const sendUpdatedTaps = (newMenus, onSuccess) => (dispatch) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify([
+      body: JSON.stringify(
         {
           password: newMenus.password,
           ankeny: newMenus.ankeny,
           bettendorf: newMenus.bettendorf,
         },
-      ]),
+      ),
     })
     .then((response) => response.json())
     .then((postResponse) => {

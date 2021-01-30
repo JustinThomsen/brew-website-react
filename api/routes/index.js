@@ -112,10 +112,10 @@ async function postJSONUpdate(object) {
 }
 
 router.post('/api/update', async (req, res) => {
-  const { password } = req.body[0];
+  const { password } = req.body;
   try {
     if (password === serverPassword) {
-      const response = await postJSONUpdate(req.body[0]);
+      const response = await postJSONUpdate(req.body);
       res.status(200).send({
         success: true,
         response,
