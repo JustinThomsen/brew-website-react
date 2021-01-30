@@ -44,7 +44,7 @@ class Header extends Component {
     let newBettendorfMenu = JSON.parse(bettendorfMenuAsString);
     let newAnkenyMenu = JSON.parse(ankenyMenuAsString);
     try {
-      let newMenus = [
+      let newMenus =
         {
           password: this.password.value,
           ankeny:
@@ -52,7 +52,7 @@ class Header extends Component {
           bettendorf:
             this.createNewMenu(newBettendorfMenu, this.props.bettendorfMenu, 'bettendorf')
         }
-      ];
+      ;
 
     const updateHeaderState = this.toggleModal;
     this.props.updateTaps(newMenus, () => {

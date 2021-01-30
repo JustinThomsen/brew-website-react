@@ -110,9 +110,9 @@ export const sendUpdatedTaps = (newMenus, onSuccess) => (dispatch) => {
       },
       body: JSON.stringify([
         {
-          password: newMenus[0].password,
-          ankeny: newMenus[0].ankeny,
-          bettendorf: newMenus[0].bettendorf,
+          password: newMenus.password,
+          ankeny: newMenus.ankeny,
+          bettendorf: newMenus.bettendorf,
         },
       ]),
     })
