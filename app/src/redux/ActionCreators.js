@@ -121,6 +121,7 @@ export const sendUpdatedTaps = (newMenus, onSuccess) => (dispatch) => {
       dispatch(updateTaps());
       dispatch(fetchAnkenyBeverages());
       dispatch(fetchBettendorfBeverages());
+      dispatch(fetchFermentation());
       onSuccess(); // TODO: only do this on 200 and show error message
     })
     .catch((error) => dispatch(locationFailed(error.message)))

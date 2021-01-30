@@ -21,9 +21,9 @@ function RenderFermentationItem(props){
       const currentReading = props.tempAndSGReadings.find((reading) => reading.recipe === props.beverage.recipeid);
       return (
         <CardImgOverlay className="overlay">
-          SG: {typeof currentReading === 'undefined' ? null : currentReading.SG}
+          SG: {currentReading ? currentReading.SG : null}
           <br/>
-          Temp: {typeof currentReading === 'undefined' ? null : currentReading.Temp}F
+          Temp: {currentReading ? currentReading.Temp : null}F
         </CardImgOverlay>
       )
     }
