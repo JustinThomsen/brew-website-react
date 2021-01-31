@@ -87,6 +87,12 @@ class Header extends Component {
         <Navbar dark expand="md">
           <div className="container">
             <h1>Magic Bean Brewing</h1>
+            <h2>Like our beer?
+              <a href="https://paypal.me/tommytomsthomsen?locale.x=en_US">
+                {' '}
+                Tip Us
+              </a>
+            </h2>
             <Nav>
               <NavItem>
                 <NavLink activeClassName="activeLink" className="nav-link inactiveLink" to="/ankeny">
