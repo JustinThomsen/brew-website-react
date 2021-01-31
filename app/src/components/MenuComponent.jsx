@@ -33,6 +33,8 @@ function RenderFermentationItem(props){
 function RenderMenuItem(props) {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  console.log()
+  console.log(props.fullMenu);
   return (
     <>
       <div className="hover" onClick={toggle}>
@@ -45,6 +47,7 @@ function RenderMenuItem(props) {
             <CardTitle className="col-12">{props.beverage.style}</CardTitle>
           </CardHeader>
             <CardImg src={props.beverage.image} alt={props.beverage.name} />
+            {/*<CardImgOverlay className="tap-number">Tap #{props.fullMenu.id + 1}</CardImgOverlay>*/}
             <RenderFermentationItem bevid={props.bevid} beverage = {props.beverage} tempAndSGReadings={props.fermentationData.fermentation} listOfFermentersAndFermentingBeer={props.fermentationList}/>
         </Card>
       </div>

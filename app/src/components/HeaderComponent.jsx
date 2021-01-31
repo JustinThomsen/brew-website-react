@@ -96,7 +96,6 @@ class Header extends Component {
             <Nav>
               <NavItem>
                 <NavLink activeClassName="activeLink" className="nav-link inactiveLink" to="/ankeny">
-                  <span className="fa fa-home fa-lg" />
                   {' '}
                   Ankeny
                 </NavLink>
@@ -107,14 +106,12 @@ class Header extends Component {
                   className="nav-link inactiveLink"
                   to="/bettendorf"
                 >
-                  <span className="fa fa-beer fa-lg" />
                   {' '}
                   Bettendorf
                 </NavLink>
               </NavItem>
               <NavItem>
                 <Button outline onClick={this.toggleModal}>
-                  <span className="fa fa-sign-in fa-lg" />
                   {' '}
                   Update
                 </Button>
