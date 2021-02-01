@@ -217,6 +217,7 @@ h5 {
 @media only screen and (max-width: 600px) {
     h1 {
         font-size: 1rem;
+        margin: 0;
     }
     .ankeny {
         max-width: 100%;
@@ -229,6 +230,7 @@ h5 {
     }
     h2 {
         font-size: 1rem;
+        margin: 0;
     }
     .fermenting {
         max-width: 100%;

@@ -87,10 +87,10 @@ class Header extends Component {
         <Navbar dark expand="md">
           <div className="container">
             <h1>Magic Bean Brewing</h1>
-            <h2>Like our beer?
+            <h2>Chip in for ingredients?
               <a href="https://paypal.me/tommytomsthomsen?locale.x=en_US">
                 {' '}
-                Tip Us
+                Chip In
               </a>
             </h2>
             <Nav>
