@@ -222,5 +222,13 @@
     "image": "images/vitalitea.jpg",
     "description": "A Chamomile tea dry hopped with citra hops.",
     "recipeid": ""
+  },
+  {
+    "id": 28,
+    "name": "Green Dragon",
+    "style": "Pub Ale",
+    "image": "images/greendragon.jpg",
+    "description": "A low ABV table beer.",
+    "recipeid": ""
   }
 ]
