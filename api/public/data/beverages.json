@@ -238,5 +238,13 @@
     "image": "images/bourbon.jpg",
     "description": "A bourbon and soda on tap, because, duh.",
     "recipeid": ""
+  },
+  {
+    "id": 30,
+    "name": "Tequila and Soda",
+    "style": "Cocktail",
+    "image": "images/tequila.jpg",
+    "description": "A tequila and soda on tap, because, duh.",
+    "recipeid": ""
   }
 ]
