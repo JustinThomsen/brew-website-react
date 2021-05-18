@@ -20,7 +20,7 @@ function renderTapSelection(tapId, menu, location) {
       <select name={id} id={id}>
         <option value="">--Please choose a beer--</option>
         {this.props.beverages.map((beer) => {
-          return <option value={beer.id} selected={beer.id === beerOnTapCurrently.beveragesid}>{beer.name}</option>
+          return <option value={beer.id} selected={beer.id === beerOnTapCurrently.beveragesid}>{beer.name} - {beer.style}</option>
         })}
       </select>
       <br />
