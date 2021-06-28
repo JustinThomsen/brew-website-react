@@ -160,20 +160,20 @@
     "recipeid": "1168795"
   },
   {
-    "id": 33,
-    "name": "Mild Temerant Solace",
-    "style": "English Mild",
-    "image": "images/solace.jpg",
-    "description": "An easy drinking English Mild.",
-    "recipeid": "1168746"
-  },
-  {
     "id": 19,
     "name": "Loki's Folly",
     "style": "American Rice Lager",
     "image": "images/loki.jpg",
     "description": "An American Lager that even the American Gods can't live without.",
     "recipeid": "962957"
+  },
+  {
+    "id": 33,
+    "name": "Mild Temerant Solace",
+    "style": "English Mild",
+    "image": "images/solace.jpg",
+    "description": "An easy drinking English Mild.",
+    "recipeid": "1168746"
   },
   {
     "id": 14,
@@ -232,7 +232,7 @@
     "recipeid": ""
   },
   {
-    "id": 31,
+    "id": 34,
     "name": "Saazed Sour",
     "style": "Lambic",
     "image": "images/sazed.jpg",
