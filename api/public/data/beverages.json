@@ -144,6 +144,30 @@
     "recipeid": ""
   },
   {
+    "id": 31,
+    "name": "Lembas Loaf",
+    "style": "Hefeweizen",
+    "image": "images/lembas.jpg",
+    "description": "A Big Hefeweizen with notes of banana.",
+    "recipeid": "1168208"
+  },
+  {
+    "id": 32,
+    "name": "Lembas Loaf Clove",
+    "style": "Hefeweizen",
+    "image": "images/lembas.jpg",
+    "description": "A Big Hefeweizen with notes of clove.",
+    "recipeid": "1168795"
+  },
+  {
+    "id": 33,
+    "name": "Mild Temerant Solace",
+    "style": "English Mild",
+    "image": "images/solace.jpg",
+    "description": "An easy drinking English Mild.",
+    "recipeid": "1168746"
+  },
+  {
     "id": 19,
     "name": "Loki's Folly",
     "style": "American Rice Lager",
