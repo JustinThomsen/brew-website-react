@@ -32,6 +32,14 @@
     "recipeid": ""
   },
   {
+    "id": 35,
+    "name": "Carboy",
+    "style": "",
+    "image": "images/carboy.jpg",
+    "description": "A carboy.",
+    "recipeid": ""
+  },
+  {
     "id": 2,
     "name": "Chichen Itza",
     "style": "Mexican Lager",
@@ -69,6 +77,14 @@
     "style": "BIPA",
     "image": "images/doors.jpg",
     "description": "Belgian IPA.",
+    "recipeid": ""
+  },
+  {
+    "id": 36,
+    "name": "Dresden's B-day Latte",
+    "style": "Pumpkin Ale",
+    "image": "images/pumpkinlatte.jpg",
+    "description": "A pumpkin ale with lactose added.",
     "recipeid": ""
   },
   {
@@ -266,9 +282,9 @@
   {
     "id": 27,
     "name": "Vital-I-Tea",
-    "style": "Hoppy Chamomile Tea",
+    "style": "Hop Water",
     "image": "images/vitalitea.jpg",
-    "description": "A Chamomile tea dry hopped with citra hops.",
+    "description": "A water dry hopped with various hops.",
     "recipeid": ""
   },
   {
